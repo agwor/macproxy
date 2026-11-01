@@ -3,6 +3,22 @@
     <channel>
         <title>MacProxy</title>
         <item>
+            <title>11.0.1</title>
+            <pubDate>Sun, 01 Nov 2026 23:19:58 +0300</pubDate>
+            <sparkle:version>447</sparkle:version>
+            <sparkle:shortVersionString>11.0.1</sparkle:shortVersionString>
+            <sparkle:minimumSystemVersion>14.0</sparkle:minimumSystemVersion>
+            <sparkle:hardwareRequirements>arm64</sparkle:hardwareRequirements>
+            <description sparkle:format="markdown"><![CDATA[### Новое
+- Ядро Xray обновлено до версии 26.10.31. Защищённые соединения оно теперь проверяет по своему списку доверенных сертификатов, а не по системному: поддельный сертификат, тайком добавленный в систему, больше не сработает.
+- Надёжнее переподключение к серверу после обрыва связи.
+- Подключение без шифрования к серверу в интернете ядро больше не принимает — такой трафик видно по дороге. MacProxy предупредит об этом ещё при добавлении сервера.
+- Обновлён движок анимации кнопки подключения.
+- Заодно проверяем, что обновления доходят сами.
+]]></description>
+            <enclosure url="https://github.com/agwor/macproxy/releases/download/v11.0.1-447/MacProxy-11.0.1-447-macos-arm64.zip" length="24743460" type="application/octet-stream" sparkle:edSignature="oZ5pP3CdaJY3uSnZgRCOWyq9TQoHsGp10wtInRYOLnzUAsUkZqNRQ+p9zCy78+Otek91H0klIwbmMHaGhm1KBw=="/>
+        </item>
+        <item>
             <title>11.0.0</title>
             <pubDate>Sun, 01 Nov 2026 15:04:01 +0300</pubDate>
             <sparkle:version>441</sparkle:version>
