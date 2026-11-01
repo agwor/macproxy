@@ -1,0 +1,154 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light dark">
+<title>MacProxy</title>
+<meta name="description" content="MacProxy 11.0.0 для macOS: скачать, установить, проверить контрольную сумму.">
+<link rel="alternate" type="application/rss+xml" title="Обновления MacProxy" href="appcast.xml">
+<style>
+  :root {
+    --canvas: oklch(0.99 0.003 258);
+    --raised: oklch(0.965 0.005 258);
+    --ink: oklch(0.22 0.020 258);
+    --ink-2: oklch(0.45 0.016 258);
+    --hair: oklch(0.22 0.020 258 / 0.10);
+    --accent: oklch(0.48 0.14 258);
+    --accent-hover: oklch(0.43 0.14 258);
+    --accent-text: oklch(0.48 0.14 258);
+    --on-accent: oklch(0.99 0.003 258);
+    --mono: ui-monospace, "SF Mono", Menlo, monospace;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --canvas: oklch(0.20 0.008 258);
+      --raised: oklch(0.25 0.010 258);
+      --ink: oklch(0.985 0.004 258);
+      --ink-2: oklch(0.74 0.012 258);
+      --hair: oklch(0.985 0.004 258 / 0.12);
+      --accent: oklch(0.55 0.15 258);
+      --accent-hover: oklch(0.60 0.15 258);
+      --accent-text: oklch(0.74 0.12 258);
+    }
+  }
+  * { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body {
+    margin: 0;
+    background: var(--canvas);
+    color: var(--ink);
+    font: 16px/1.55 -apple-system, BlinkMacSystemFont, "SF Pro Text", "Helvetica Neue", sans-serif;
+    -webkit-font-smoothing: antialiased;
+  }
+  main { max-width: 640px; margin: 0 auto; padding: 56px 16px 48px; }
+  header { display: flex; gap: 18px; align-items: center; margin-bottom: 28px; }
+  header svg { flex: none; width: 64px; height: 64px; }
+  h1 { margin: 0; font-size: 34px; line-height: 1.1; letter-spacing: -0.02em; font-weight: 700; }
+  .lede { margin: 4px 0 0; color: var(--ink-2); }
+  h2 { font-size: 19px; letter-spacing: -0.01em; margin: 40px 0 12px; }
+  .download {
+    background: var(--raised);
+    border: 1px solid var(--hair);
+    border-radius: 16px;
+    padding: 20px;
+  }
+  .button {
+    display: inline-block;
+    background: var(--accent);
+    color: var(--on-accent);
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 17px;
+    padding: 12px 22px;
+    border-radius: 10px;
+  }
+  .button:hover { background: var(--accent-hover); }
+  .button:focus-visible, a:focus-visible, summary:focus-visible { outline: 3px solid var(--accent-text); outline-offset: 3px; }
+  .meta { margin: 12px 0 0; color: var(--ink-2); font-size: 14px; }
+  ol.steps { list-style: none; counter-reset: step; margin: 0; padding: 0; }
+  ol.steps li { counter-increment: step; position: relative; padding: 0 0 16px 44px; }
+  ol.steps li::before {
+    content: counter(step);
+    position: absolute; left: 0; top: -1px;
+    width: 28px; height: 28px; border-radius: 50%;
+    display: grid; place-items: center;
+    background: var(--raised); border: 1px solid var(--hair);
+    font-weight: 600; font-size: 14px;
+  }
+  ol.steps b { display: block; }
+  ol.steps span { color: var(--ink-2); }
+  details { margin: 4px 0 0; }
+  summary { cursor: pointer; color: var(--accent-text); }
+  pre, .hash {
+    margin: 10px 0 0;
+    background: var(--raised);
+    border: 1px solid var(--hair);
+    border-radius: 10px;
+    padding: 12px 14px;
+    font: 13px/1.5 var(--mono);
+    overflow-x: auto;
+  }
+  .hash { word-break: break-all; user-select: all; -webkit-user-select: all; }
+  p { margin: 10px 0 0; }
+  a { color: var(--accent-text); }
+  footer { margin-top: 44px; padding-top: 16px; border-top: 1px solid var(--hair); color: var(--ink-2); font-size: 14px; }
+  @media (max-width: 480px) {
+    main { padding-top: 32px; }
+    h1 { font-size: 28px; }
+    .button { display: block; text-align: center; }
+  }
+</style>
+</head>
+<body>
+<main>
+  <header>
+    <svg viewBox="0 0 64 64" aria-hidden="true">
+      <defs>
+        <linearGradient id="g" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0" stop-color="oklch(0.42 0.10 258)"/>
+          <stop offset="1" stop-color="oklch(0.30 0.10 258)"/>
+        </linearGradient>
+      </defs>
+      <rect width="64" height="64" rx="14.5" fill="url(#g)"/>
+      <g fill="none" stroke="oklch(0.97 0.004 258)" stroke-width="2.6" stroke-linecap="round">
+        <circle cx="32" cy="32" r="16"/>
+        <ellipse cx="32" cy="32" rx="7" ry="16"/>
+        <path d="M17 26.5h30M17 37.5h30"/>
+      </g>
+    </svg>
+    <div>
+      <h1>MacProxy</h1>
+      <p class="lede">Выбранные вами программы ходят через ваш сервер, остальные — напрямую. Живёт в строке меню macOS.</p>
+    </div>
+  </header>
+
+  <section class="download" aria-label="Скачать">
+    <a class="button" href="https://github.com/agwor/macproxy/releases/download/v11.0.0-441/MacProxy-11.0.0-441-macos-arm64.dmg">Скачать MacProxy 11.0.0</a>
+    <p class="meta">DMG · 23,6 МБ · macOS 14 или новее · Mac на Apple Silicon (M1 и новее) · сборка 441, 1 ноября 2026</p>
+  </section>
+
+  <h2>Установка</h2>
+  <ol class="steps">
+    <li><b>Перетащите MacProxy в «Программы».</b> <span>Откройте скачанный образ, перетащите значок на папку «Программы» и извлеките образ.</span></li>
+    <li><b>Откройте MacProxy и нажмите «Готово».</b> <span>Сборка пока не нотаризована Apple, поэтому macOS скажет, что не может проверить приложение.</span></li>
+    <li><b>Разрешите запуск.</b> <span>Системные настройки → Конфиденциальность и безопасность → внизу «Все равно открыть» рядом с MacProxy, подтвердите паролем или Touch ID.</span></li>
+  </ol>
+  <details>
+    <summary>Запасной путь через Терминал</summary>
+    <p>Когда MacProxy уже лежит в «Программах», вместо шагов 2–3:</p>
+    <pre><code>xattr -dr com.apple.quarantine /Applications/MacProxy.app</code></pre>
+  </details>
+  <p>Значка в Dock нет: MacProxy живёт в строке меню. Обновления приходят сами — новую версию MacProxy покажет на Главной, ставится она одной кнопкой.</p>
+
+  <h2>Проверка файла</h2>
+  <p>Сравните контрольную сумму SHA-256 скачанного образа с этой:</p>
+  <pre><code>shasum -a 256 ~/Downloads/MacProxy-11.0.0-441-macos-arm64.dmg</code></pre>
+  <p class="hash">6b8894dc2fcc9c1a37b7413bd82a5beb76428f61c713bb2abfd72486461c656e</p>
+
+  <footer>
+    <a href="https://github.com/agwor/macproxy/releases">Все выпуски</a> · у каждого — файл SHA256SUMS
+  </footer>
+</main>
+</body>
+</html>

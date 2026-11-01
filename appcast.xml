@@ -1,0 +1,21 @@
+<?xml version="1.0" standalone="yes"?>
+<rss xmlns:sparkle="http://www.andymatuschak.org/xml-namespaces/sparkle" version="2.0">
+    <channel>
+        <title>MacProxy</title>
+        <item>
+            <title>11.0.0</title>
+            <pubDate>Sun, 01 Nov 2026 15:04:01 +0300</pubDate>
+            <sparkle:version>441</sparkle:version>
+            <sparkle:shortVersionString>11.0.0</sparkle:shortVersionString>
+            <sparkle:minimumSystemVersion>14.0</sparkle:minimumSystemVersion>
+            <sparkle:hardwareRequirements>arm64</sparkle:hardwareRequirements>
+            <description sparkle:format="markdown"><![CDATA[### Новое
+- Первая сборка MacProxy 11 в открытом доступе: выбранные программы ходят через ваш сервер, остальные — напрямую.
+- Обновления приходят сами: новая версия появляется строкой на Главной и синей точкой на значке, ставится одной кнопкой.
+- Открыли MacProxy прямо из образа или из «Загрузок» — он сам предложит перенести себя в «Программы».
+- «Настройки → Общие»: открывать при входе в систему и уведомления.
+]]></description>
+            <enclosure url="https://github.com/agwor/macproxy/releases/download/v11.0.0-441/MacProxy-11.0.0-441-macos-arm64.zip" length="23037010" type="application/octet-stream" sparkle:edSignature="B20HQRVqqXOX38obT+TbwGkO5/BHDgYYky+v23acQY+qWCqh8g4ue5Yq7rvr8pVIGDzTRyv5xQH9wpDRWfOXAQ=="/>
+        </item>
+    </channel>
+</rss>
