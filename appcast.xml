@@ -3,6 +3,21 @@
     <channel>
         <title>MacProxy</title>
         <item>
+            <title>11.0.2</title>
+            <pubDate>Mon, 02 Nov 2026 14:48:54 +0300</pubDate>
+            <sparkle:version>461</sparkle:version>
+            <sparkle:shortVersionString>11.0.2</sparkle:shortVersionString>
+            <sparkle:minimumSystemVersion>14.0</sparkle:minimumSystemVersion>
+            <sparkle:hardwareRequirements>arm64</sparkle:hardwareRequirements>
+            <description sparkle:format="markdown"><![CDATA[### Новое
+- «Ещё ⌄ → Вид (проба)» — теперь один выбор «Кнопка» из пяти знаков: нынешняя кнопка, она же доведённая, стеклянный глобус с ядром, стеклянный глобус со световодами и звезда с ореолом. Один клик меняет и кнопку, и значок в строке меню.
+- Размер кнопки, тема и подложка больше не выбираются: кнопка крупная, «Подключено» — зелёное.
+- Сервер без шифрования: новое ядро Xray к такому серверу в интернете не подключается, и MacProxy теперь так и пишет — в списке серверов строка подсвечена заранее, а «Проверка» и «Подробнее» у ошибки советуют, что сделать.
+- «Самый быстрый» больше не выбирает сервер, к которому ядро не подключится.
+]]></description>
+            <enclosure url="https://github.com/agwor/macproxy/releases/download/v11.0.2-461/MacProxy-11.0.2-461-macos-arm64.zip" length="24900340" type="application/octet-stream" sparkle:edSignature="iUM1nbqUzTcyi6Md/5YDHi34jMkkQVJIxD6P5/J9tE9pKh/FwYbyFKwdLqiyrjMLLHIE+2xFGCo02zGsbj/VBA=="/>
+        </item>
+        <item>
             <title>11.0.1</title>
             <pubDate>Sun, 01 Nov 2026 23:19:58 +0300</pubDate>
             <sparkle:version>447</sparkle:version>
