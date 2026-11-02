@@ -3,6 +3,26 @@
     <channel>
         <title>MacProxy</title>
         <item>
+            <title>11.0.4</title>
+            <pubDate>Tue, 03 Nov 2026 00:23:37 +0300</pubDate>
+            <sparkle:version>491</sparkle:version>
+            <sparkle:shortVersionString>11.0.4</sparkle:shortVersionString>
+            <sparkle:minimumSystemVersion>14.0</sparkle:minimumSystemVersion>
+            <sparkle:hardwareRequirements>arm64</sparkle:hardwareRequirements>
+            <description sparkle:format="markdown"><![CDATA[### Новое
+- Обновление MacProxy теперь целиком в панели: что нового, ход скачивания с процентами, проверка подписи и установка — на одном экране, панель не закрывается. Если закрыть и открыть панель посреди скачивания, откроется тот же экран. Так пройдут обновления начиная со следующего.
+- После обновления MacProxy один раз сам открывает панель и показывает, до какой версии обновился.
+- «Ещё → Вид (проба) → Кнопка», два новых вида:
+  - «Звезда-вертушка» — звезда крутится сама, вокруг наклонённое кольцо с кометами; в строке меню у неё свой значок «Звезда с кольцом»;
+  - «Как сейчас, плавный свет» — в момент подключения синий свет по кольцу не перескакивает, а продолжает бег и плавно становится зелёным.
+
+### Исправлено
+- Кнопка «Как сейчас, доведённая»: свет по кольцу больше не подлагивает при подключении.
+- Кнопка снова держит ровные 60 кадров в секунду после того, как панель закрывали.
+]]></description>
+            <enclosure url="https://github.com/agwor/macproxy/releases/download/v11.0.4-491/MacProxy-11.0.4-491-macos-arm64.zip" length="25375102" type="application/octet-stream" sparkle:edSignature="0R9wKQaaWvDg42DED8ehzbsjkXUx5hKBv9Y9Gaf2+1lYZxNi9flWpHlDg21sriOxlNQzj/VDTj1UZGqFE+/tBg=="/>
+        </item>
+        <item>
             <title>11.0.3</title>
             <pubDate>Mon, 02 Nov 2026 17:41:30 +0300</pubDate>
             <sparkle:version>477</sparkle:version>
