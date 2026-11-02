@@ -3,6 +3,27 @@
     <channel>
         <title>MacProxy</title>
         <item>
+            <title>11.0.3</title>
+            <pubDate>Mon, 02 Nov 2026 17:41:30 +0300</pubDate>
+            <sparkle:version>477</sparkle:version>
+            <sparkle:shortVersionString>11.0.3</sparkle:shortVersionString>
+            <sparkle:minimumSystemVersion>14.0</sparkle:minimumSystemVersion>
+            <sparkle:hardwareRequirements>arm64</sparkle:hardwareRequirements>
+            <description sparkle:format="markdown"><![CDATA[### Новое
+- Окно MacProxy теперь полноценное: «Программы», «Серверы и подписки» и все настройки работают прямо в окне, без «Пока в панели». Разделы слева видны всегда.
+- «Настройки → Общие → Автозапуск»: открывать MacProxy при входе в систему и что делать при запуске — подключаться, как было при выходе, или не подключаться.
+- «Настройки → Сеть»: режим, «Когда туннель выключен», «Чинить туннель самому», адреса прокси с кнопкой «Скопировать». Если порт занят, строка подсвечена и переводит на запасные порты одной кнопкой.
+- «Настройки → Приватность»: куда MacProxy обращается сам, отчёты об ошибках и журналы.
+- Кнопка «Как сейчас, доведённая»: в выключенном виде глобус цельный, без разрывов.
+
+### Исправлено
+- Левая колонка окна могла оставаться пустой.
+- Если разрешить вход в систему в Системных настройках, окно больше не показывает «Ждёт разрешения».
+- «О программе → Компоненты» — только библиотеки, которые лежат в приложении.
+]]></description>
+            <enclosure url="https://github.com/agwor/macproxy/releases/download/v11.0.3-477/MacProxy-11.0.3-477-macos-arm64.zip" length="25252137" type="application/octet-stream" sparkle:edSignature="/fz60PR+DHO3iHxhPOuBRRs8jZNBvve+Fiegw0HLDZ8RwFXH4BkkqyIbrzckH78sCmE80sq5K0gRX66/uvayCw=="/>
+        </item>
+        <item>
             <title>11.0.2</title>
             <pubDate>Mon, 02 Nov 2026 14:48:54 +0300</pubDate>
             <sparkle:version>461</sparkle:version>
