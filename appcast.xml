@@ -3,6 +3,29 @@
     <channel>
         <title>MacProxy</title>
         <item>
+            <title>11.0.5</title>
+            <pubDate>Tue, 03 Nov 2026 15:06:20 +0300</pubDate>
+            <sparkle:version>505</sparkle:version>
+            <sparkle:shortVersionString>11.0.5</sparkle:shortVersionString>
+            <sparkle:minimumSystemVersion>14.0</sparkle:minimumSystemVersion>
+            <sparkle:hardwareRequirements>arm64</sparkle:hardwareRequirements>
+            <description sparkle:format="markdown"><![CDATA[### Новое
+- Флаги стран нарисованы заново: 264 страны — на Главной, в «Выбор страны», в меню и теперь в окне «Серверы и подписки». На мелком размере гербы упрощены, чтобы не сливаться в пятно.
+- «Ещё → Вид (проба) → Флаг в строке меню» — проба значка с флагом страны при «Подключено»:
+  - «Без флага» — как было, со знаком и кодом страны (по умолчанию);
+  - «A · Кольцо» — знак раскрывается в зелёное кольцо, в нём флаг;
+  - «B · Глобус-флаг» — флаг в зелёном кольце, поверх крутятся линии знака;
+  - «C · Знак и флаг» — знак остаётся, флаг — меткой у его края.
+  Работает с любым видом кнопки.
+
+### Исправлено
+- «Самый быстрый» показывает одно число — задержку до сервера; случайный долгий замер больше не висит часами.
+- Точка у «Подключено» загорается тем же цветом и в тот же миг, что свет кнопки.
+- Пинг больше не красится в оранжевый: до 60 мс — зелёный, дальше — обычным цветом.
+]]></description>
+            <enclosure url="https://github.com/agwor/macproxy/releases/download/v11.0.5-505/MacProxy-11.0.5-505-macos-arm64.zip" length="25491899" type="application/octet-stream" sparkle:edSignature="44nfOC7hZgPdUW2fcRGlv1kYPI7x3+3kzc3pOsVqDGpNqBVOoQa4tf6cqDF5YVIo4Tb08HqXoHzrYzVB9SjVAg=="/>
+        </item>
+        <item>
             <title>11.0.4</title>
             <pubDate>Tue, 03 Nov 2026 00:23:37 +0300</pubDate>
             <sparkle:version>491</sparkle:version>
