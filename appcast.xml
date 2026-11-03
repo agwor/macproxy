@@ -3,6 +3,25 @@
     <channel>
         <title>MacProxy</title>
         <item>
+            <title>11.0.6</title>
+            <pubDate>Tue, 03 Nov 2026 17:46:10 +0300</pubDate>
+            <sparkle:version>511</sparkle:version>
+            <sparkle:shortVersionString>11.0.6</sparkle:shortVersionString>
+            <sparkle:minimumSystemVersion>14.0</sparkle:minimumSystemVersion>
+            <sparkle:hardwareRequirements>arm64</sparkle:hardwareRequirements>
+            <description sparkle:format="markdown"><![CDATA[### Исправлено
+- Флаг в строке меню (варианты A, B, C): кода страны текстом больше нет ни при подключении, ни при ошибке; ширина значка не меняется, соседние значки не сдвигаются.
+- B со звёздами: середина флага открыта — солнце, полумесяц и эмблемы видны целиком.
+- C: синяя точка обновления — в левом верхнем углу, флаг — в правом нижнем, не теснят друг друга.
+- Главная: подписка называется один раз — строкой внизу; в карточке места — имя сервера или город («Нидерланды» / «Амстердам»).
+- Подпись «2 программы через MacProxy v10» под статусом убрана, когда это и так написано у каждой программы ниже.
+- Правое меню: «Подключено · Нидерланды · 49 мс» вместо имени сервера два раза.
+- Своему прокси и отдельной ссылке строка внизу Главной больше не повторяет имя и страну.
+- Ссылка на один сервер везде называется одинаково — «отдельная ссылка».
+]]></description>
+            <enclosure url="https://github.com/agwor/macproxy/releases/download/v11.0.6-511/MacProxy-11.0.6-511-macos-arm64.zip" length="25495518" type="application/octet-stream" sparkle:edSignature="GN7JbvIkm52b74REyaVJvI5f8rKut4XHc0QA3SLa4CW5gr86BCrp+OtLtRBueqINW36Vo7eFFTzi/QOiOzRfAQ=="/>
+        </item>
+        <item>
             <title>11.0.5</title>
             <pubDate>Tue, 03 Nov 2026 15:06:20 +0300</pubDate>
             <sparkle:version>505</sparkle:version>
