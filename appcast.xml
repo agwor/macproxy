@@ -3,6 +3,28 @@
     <channel>
         <title>MacProxy</title>
         <item>
+            <title>11.0.7</title>
+            <pubDate>Wed, 04 Nov 2026 02:16:57 +0300</pubDate>
+            <sparkle:version>543</sparkle:version>
+            <sparkle:shortVersionString>11.0.7</sparkle:shortVersionString>
+            <sparkle:minimumSystemVersion>14.0</sparkle:minimumSystemVersion>
+            <sparkle:hardwareRequirements>arm64</sparkle:hardwareRequirements>
+            <description sparkle:format="markdown"><![CDATA[### Новое
+- Подписки обновляются сами: «Обновлять» — каждые 6 ч, 12 ч, раз в день или вручную; по умолчанию — как советует провайдер. Если обновить не вышло, прежний список серверов остаётся, а причина видна в строке подписки.
+- Адрес подписки скрыт: «Показать», «Скопировать», «Скрыть».
+- «Проверить все» вместо «↻» и «Замерить пинг»: проверяет все серверы так же, как «Самый быстрый», с ходом проверки и кнопкой «Остановить». Недоступный сервер подсвечен в своей строке.
+- Настройки → Сеть: порты «Автоматически» или «Вручную».
+- Настройки → Приватность: «Узнавать страну выхода (ipinfo.io)». Выключено — ни одного запроса к ipinfo.
+- «Проверка»: «Проверить сервисы» и «Обновить» у «Выход» работают и без туннеля — через сервер; туннель сам не включается.
+- «Ещё → Вид (проба) → Логотип» — два новых знака, «Сдвиг» и «Вымпел»: в кнопке и в строке меню, каждый со своей анимацией.
+
+### Исправлено
+- Жёлтой подсветки больше нет: «порт занят», «подписка не обновилась», «не подключится» — красным, подсказки без ошибки — серым.
+- «не работает», «не отвечает», «не подключится» стоят справа на месте пинга, одной строкой; город больше не обрезается.
+]]></description>
+            <enclosure url="https://github.com/agwor/macproxy/releases/download/v11.0.7-543/MacProxy-11.0.7-543-macos-arm64.zip" length="25803019" type="application/octet-stream" sparkle:edSignature="qn0xylHvwQ8inS6GWRGXN/86JnUTE9w8ZrR1SbrODIwdBtvs6f7S2RuJqjOUhWXMFNag5rxka5a81zk6q/QLBw=="/>
+        </item>
+        <item>
             <title>11.0.6</title>
             <pubDate>Tue, 03 Nov 2026 17:46:10 +0300</pubDate>
             <sparkle:version>511</sparkle:version>
