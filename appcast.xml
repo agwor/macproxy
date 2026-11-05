@@ -3,6 +3,24 @@
     <channel>
         <title>MacProxy</title>
         <item>
+            <title>11.0.8</title>
+            <pubDate>Thu, 05 Nov 2026 17:16:16 +0300</pubDate>
+            <sparkle:version>556</sparkle:version>
+            <sparkle:shortVersionString>11.0.8</sparkle:shortVersionString>
+            <sparkle:minimumSystemVersion>14.0</sparkle:minimumSystemVersion>
+            <sparkle:hardwareRequirements>arm64</sparkle:hardwareRequirements>
+            <description sparkle:format="markdown"><![CDATA[### Новое
+- «Ещё → Вид (проба) → Логотип»: два новых знака — «Вымпел-портал» (в чаше P открывается портал) и «Кнопка-портал» (кнопка становится вихрем и засасывает P). Оба в кнопке и в строке меню, каждый со своей анимацией.
+
+### Исправлено
+- «Сдвиг» и «Вымпел» двигаются ровно, как глобус, без рывков, и в кнопке, и в строке меню.
+- Значок в строке меню идёт 30 кадров в секунду без пропусков. Новое состояние продолжает анимацию с того места, где она сейчас, а не ждёт конца прежней.
+- Повтор и переподключение идут сразу из ошибки или «Подключено», без захода в «выкл».
+- Красная вспышка ошибки загорается вместе с красным цветом кнопки, без бурого кольца. Точка у слова состояния меняет цвет в тот же миг, что и кнопка.
+]]></description>
+            <enclosure url="https://github.com/agwor/macproxy/releases/download/v11.0.8-556/MacProxy-11.0.8-556-macos-arm64.zip" length="26028397" type="application/octet-stream" sparkle:edSignature="7tjmIMXWEi+CQZVz7g5G67jJddj2vSEQo7ukbZKL3BGawy4giiNrtYghzwEwfRTZLYuCMyR09z+FUEJORTlIDQ=="/>
+        </item>
+        <item>
             <title>11.0.7</title>
             <pubDate>Wed, 04 Nov 2026 02:16:57 +0300</pubDate>
             <sparkle:version>543</sparkle:version>
