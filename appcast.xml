@@ -3,6 +3,19 @@
     <channel>
         <title>MacProxy</title>
         <item>
+            <title>11.0.9</title>
+            <pubDate>Thu, 05 Nov 2026 23:56:32 +0300</pubDate>
+            <sparkle:version>572</sparkle:version>
+            <sparkle:shortVersionString>11.0.9</sparkle:shortVersionString>
+            <sparkle:minimumSystemVersion>14.0</sparkle:minimumSystemVersion>
+            <sparkle:hardwareRequirements>arm64</sparkle:hardwareRequirements>
+            <description sparkle:format="markdown"><![CDATA[### Новое
+- «Ещё → Вид (проба) → Логотип»: новый знак «Сборка» — прозрачный глобус из двух половин со светом в шве. При подключении половины расходятся и крутятся навстречу, при «Подключено» смыкаются.
+- «Кнопка-портал» по-новому: P засасывается в портал целиком, и пока туннель работает, портал крутится зелёным.
+]]></description>
+            <enclosure url="https://github.com/agwor/macproxy/releases/download/v11.0.9-572/MacProxy-11.0.9-572-macos-arm64.zip" length="26076980" type="application/octet-stream" sparkle:edSignature="ncULkhZFcFDkfScRlCN/9fgbekJjBE/SXQobBZm1treZibXcyM3P9qxu2vAtr+8IMXKjKeSp0wsxJu9y7RtTBw=="/>
+        </item>
+        <item>
             <title>11.0.8</title>
             <pubDate>Thu, 05 Nov 2026 17:16:16 +0300</pubDate>
             <sparkle:version>556</sparkle:version>
