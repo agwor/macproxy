@@ -3,6 +3,18 @@
     <channel>
         <title>MacProxy</title>
         <item>
+            <title>11.0.10</title>
+            <pubDate>Sat, 07 Nov 2026 01:41:51 +0300</pubDate>
+            <sparkle:version>577</sparkle:version>
+            <sparkle:shortVersionString>11.0.10</sparkle:shortVersionString>
+            <sparkle:minimumSystemVersion>14.0</sparkle:minimumSystemVersion>
+            <sparkle:hardwareRequirements>arm64</sparkle:hardwareRequirements>
+            <description sparkle:format="markdown"><![CDATA[### Новое
+- «Ещё → Вид (проба) → Логотип»: новый знак «Точка в дыру» — исходная «Точка в кольце», которую при подключении затягивает в чёрную дыру. Пока туннель работает, вокруг ядра крутится зелёный диск; при ошибке дыра краснеет и выплёвывает точку. Подключение — без синего, нейтральным светом.
+]]></description>
+            <enclosure url="https://github.com/agwor/macproxy/releases/download/v11.0.10-577/MacProxy-11.0.10-577-macos-arm64.zip" length="26132083" type="application/octet-stream" sparkle:edSignature="zCeNio1A6jmWoWXy8EIgVul6ccakFxdP1+Pga5enu+MIwwh95Gb2RLEHkPP325X6UAjkJtRaEFHXr8ZInCfvAg=="/>
+        </item>
+        <item>
             <title>11.0.9</title>
             <pubDate>Thu, 05 Nov 2026 23:56:32 +0300</pubDate>
             <sparkle:version>572</sparkle:version>
