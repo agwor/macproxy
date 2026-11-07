@@ -5,7 +5,7 @@ macOS 14 или новее, Mac на Apple Silicon (M1 и новее).
 
 Здесь лежат только готовые сборки и лента обновлений.
 
-**Последняя версия — 11.0.10** (сборка 577, 7 ноября 2026): [скачать MacProxy-11.0.10-577-macos-arm64.dmg](https://github.com/agwor/macproxy/releases/download/v11.0.10-577/MacProxy-11.0.10-577-macos-arm64.dmg) · [все выпуски](https://github.com/agwor/macproxy/releases)
+**Последняя версия — 11.0.11** (сборка 588, 7 ноября 2026): [скачать MacProxy-11.0.11-588-macos-arm64.dmg](https://github.com/agwor/macproxy/releases/download/v11.0.11-588/MacProxy-11.0.11-588-macos-arm64.dmg) · [все выпуски](https://github.com/agwor/macproxy/releases)
 
 ## Установка
 
@@ -28,11 +28,11 @@ xattr -dr com.apple.quarantine /Applications/MacProxy.app
 Сравните контрольную сумму скачанного образа с этой (она же — в файле `SHA256SUMS` каждого выпуска):
 
 ```sh
-shasum -a 256 ~/Downloads/MacProxy-11.0.10-577-macos-arm64.dmg
+shasum -a 256 ~/Downloads/MacProxy-11.0.11-588-macos-arm64.dmg
 ```
 
 ```
-b570590e0f636eaba4d289b033225c68fe01613beda30bb86ec4c0e50044131b  MacProxy-11.0.10-577-macos-arm64.dmg
+c5175a83ad23632984c14a94d1c7b61133177215f14d2491eada1711ef10ea18  MacProxy-11.0.11-588-macos-arm64.dmg
 ```
 
 ## Обновления
