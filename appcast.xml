@@ -3,6 +3,32 @@
     <channel>
         <title>MacProxy</title>
         <item>
+            <title>11.0.12</title>
+            <pubDate>Sun, 08 Nov 2026 16:05:20 +0300</pubDate>
+            <sparkle:version>607</sparkle:version>
+            <sparkle:shortVersionString>11.0.12</sparkle:shortVersionString>
+            <sparkle:minimumSystemVersion>14.0</sparkle:minimumSystemVersion>
+            <sparkle:hardwareRequirements>arm64</sparkle:hardwareRequirements>
+            <description sparkle:format="markdown"><![CDATA[### Новое
+- «Открыть» у программы из избранного само включает туннель — Главная сразу показывает «Подключение…».
+- «Ещё → Режим ▸»: «Без туннеля — без сети» (по умолчанию: при выключенном туннеле программы через MacProxy не выходят в сеть) или «Без туннеля — напрямую».
+- Claude Code, Codex и Терминал — обычные программы со ★: MacProxy сам ведёт их настройки прокси, ничего прописывать не нужно. Если найден MacProxy v10 — кнопка «Перейти на MacProxy» (только по нажатию, с откатом при сбое).
+- Уведомления: переход на запасное подключение и возврат, смена сервера подпиской, скорый конец подписки (за 3 дня) и трафика (90 %). Разрешение на уведомления спрашивается сразу, без ожидания полной настройки.
+- Обновления проверяются сами: через 30 с после запуска, каждые 4 часа и после пробуждения.
+
+### Исправлено
+- Частые «Вкл/Выкл» больше не дают долгого зависания подключения.
+- Если порт MacProxy занят другой программой, программа не откроется мимо туннеля.
+- В Electron-программах WebRTC идёт только через прокси.
+
+### Вид (проба)
+- Оставлены три: «Как сейчас, плавный свет», «Точка в дыру», «Кольцо».
+- «Плавный свет»: подключение серебром вместо синего, переход «Подключено» ↔ ошибка без бурых кадров.
+- «Кольцо»: спокойнее и матовое — при подключении двигается только разрыв.
+]]></description>
+            <enclosure url="https://github.com/agwor/macproxy/releases/download/v11.0.12-607/MacProxy-11.0.12-607-macos-arm64.zip" length="25745194" type="application/octet-stream" sparkle:edSignature="5sSLvmChQroiJ/FzrVA9LizE4CV+FlzTtOFSTSN59vYyKEElateLCjODnoKXsvdmCldwsiBo9m77Rgf21KNPCg=="/>
+        </item>
+        <item>
             <title>11.0.11</title>
             <pubDate>Sat, 07 Nov 2026 19:45:36 +0300</pubDate>
             <sparkle:version>588</sparkle:version>
