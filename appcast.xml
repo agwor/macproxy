@@ -3,6 +3,30 @@
     <channel>
         <title>MacProxy</title>
         <item>
+            <title>11.0.16</title>
+            <pubDate>Mon, 09 Nov 2026 23:34:58 +0300</pubDate>
+            <sparkle:version>638</sparkle:version>
+            <sparkle:shortVersionString>11.0.16</sparkle:shortVersionString>
+            <sparkle:minimumSystemVersion>14.0</sparkle:minimumSystemVersion>
+            <sparkle:hardwareRequirements>arm64</sparkle:hardwareRequirements>
+            <description sparkle:format="markdown"><![CDATA[### Логотип
+- Логотип MacProxy теперь «Кольцо»: новый значок приложения (графитовая плитка, светлое кольцо с точкой), «О программе», первый запуск, окно обновления, образ DMG и страница продукта.
+- Кнопка и значок строки меню по умолчанию — «Кольцо → глобус»: в покое кольцо, при подключении оно смыкается и превращается в исходный крутящийся глобус, при выключении сворачивается обратно. Выбор в «Вид (проба)» сохраняется.
+
+### Обновление ядра Xray
+- Полоса прогресса на Главной и на листе «Ядро Xray»: процент скачивания и 10 минут наблюдения; после перезапуска приложения продолжает с того же места.
+- «Скачано» показывает настоящий размер (было «0 МБ»).
+- Если Xray выключен или пропала сеть — «Наблюдение приостановлено», а не «осталось N»; смена Wi-Fi или сон больше не откатывают исправную новую версию.
+- «Вернуть прежнюю версию» работает и во время наблюдения.
+
+### Состояния и цвета
+- «Проверка» и другие экраны с процессами: крутилка в строке текущего шага, пройденные — с галочкой, кнопки «Проверяем…» вместо бледных; во время проверки больше нет «Ещё не проверяли».
+- Задержка сервера — настоящая (время соединения), а не время всей проверки.
+- Синий убран: точка обновления в строке меню, ссылки и кнопки окна, страница и DMG.
+]]></description>
+            <enclosure url="https://github.com/agwor/macproxy/releases/download/v11.0.16-638/MacProxy-11.0.16-638-macos-arm64.zip" length="26451888" type="application/octet-stream" sparkle:edSignature="aCl6WCrep/ivLhTkiL8+ZliAX7XBrwrhZy7R/ZmJF2xbB1qWtexRElUPovh4EARFn9sDNnatr3Q6i96tSr9ADA=="/>
+        </item>
+        <item>
             <title>11.0.15</title>
             <pubDate>Mon, 09 Nov 2026 17:56:22 +0300</pubDate>
             <sparkle:version>624</sparkle:version>

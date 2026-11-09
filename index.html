@@ -5,31 +5,33 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="color-scheme" content="light dark">
 <title>MacProxy</title>
-<meta name="description" content="MacProxy 11.0.15 для macOS: скачать, установить, проверить контрольную сумму.">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14.4' fill='%232E2F30'/%3E%3Cpath d='M37.23 12.49A20.19 20.19 0 1 0 51.51 26.77' fill='none' stroke='%23EFF0F2' stroke-width='6.6' stroke-linecap='round'/%3E%3Ccircle cx='32' cy='32' r='8' fill='%23EFF0F2'/%3E%3C/svg%3E">
+<meta name="description" content="MacProxy 11.0.16 для macOS: скачать, установить, проверить контрольную сумму.">
 <link rel="alternate" type="application/rss+xml" title="Обновления MacProxy" href="appcast.xml">
 <style>
   :root {
-    --canvas: oklch(0.99 0.003 258);
-    --raised: oklch(0.965 0.005 258);
-    --ink: oklch(0.22 0.020 258);
-    --ink-2: oklch(0.45 0.016 258);
-    --hair: oklch(0.22 0.020 258 / 0.10);
-    --accent: oklch(0.48 0.14 258);
-    --accent-hover: oklch(0.43 0.14 258);
-    --accent-text: oklch(0.48 0.14 258);
-    --on-accent: oklch(0.99 0.003 258);
+    --canvas: oklch(0.99 0 0);
+    --raised: oklch(0.965 0 0);
+    --ink: oklch(0.22 0 0);
+    --ink-2: oklch(0.45 0 0);
+    --hair: oklch(0.22 0 0 / 0.10);
+    --accent: oklch(0.24 0 0);
+    --accent-hover: oklch(0.33 0 0);
+    --accent-text: oklch(0.22 0 0);
+    --on-accent: oklch(0.99 0 0);
     --mono: ui-monospace, "SF Mono", Menlo, monospace;
   }
   @media (prefers-color-scheme: dark) {
     :root {
-      --canvas: oklch(0.20 0.008 258);
-      --raised: oklch(0.25 0.010 258);
-      --ink: oklch(0.985 0.004 258);
-      --ink-2: oklch(0.74 0.012 258);
-      --hair: oklch(0.985 0.004 258 / 0.12);
-      --accent: oklch(0.55 0.15 258);
-      --accent-hover: oklch(0.60 0.15 258);
-      --accent-text: oklch(0.74 0.12 258);
+      --canvas: oklch(0.20 0 0);
+      --raised: oklch(0.25 0 0);
+      --ink: oklch(0.985 0 0);
+      --ink-2: oklch(0.74 0 0);
+      --hair: oklch(0.985 0 0 / 0.12);
+      --accent: oklch(0.93 0 0);
+      --accent-hover: oklch(0.985 0 0);
+      --accent-text: oklch(0.975 0 0);
+      --on-accent: oklch(0.20 0 0);
     }
   }
   * { box-sizing: border-box; }
@@ -103,19 +105,14 @@
 <body>
 <main>
   <header>
-    <svg viewBox="0 0 64 64" aria-hidden="true">
+    <svg viewBox="0 0 64 64" aria-hidden="true" data-logo="ring">
       <defs>
-        <linearGradient id="g" x1="0" y1="0" x2="0" y2="1">
-          <stop offset="0" stop-color="oklch(0.42 0.10 258)"/>
-          <stop offset="1" stop-color="oklch(0.30 0.10 258)"/>
-        </linearGradient>
+        <linearGradient id="rl-tile" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#4B4C4D"/><stop offset="1" stop-color="#1E1E1F"/></linearGradient>
+        <linearGradient id="rl-mark" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#F2F4F6"/><stop offset="1" stop-color="#D4D6D7"/></linearGradient>
       </defs>
-      <rect width="64" height="64" rx="14.5" fill="url(#g)"/>
-      <g fill="none" stroke="oklch(0.97 0.004 258)" stroke-width="2.6" stroke-linecap="round">
-        <circle cx="32" cy="32" r="16"/>
-        <ellipse cx="32" cy="32" rx="7" ry="16"/>
-        <path d="M17 26.5h30M17 37.5h30"/>
-      </g>
+      <rect width="64" height="64" rx="14.4" fill="url(#rl-tile)"/>
+      <path d="M37.23 12.49A20.19 20.19 0 1 0 51.51 26.77" fill="none" stroke="url(#rl-mark)" stroke-width="6.21" stroke-linecap="round"/>
+      <circle cx="32" cy="32" r="7.77" fill="url(#rl-mark)"/>
     </svg>
     <div>
       <h1>MacProxy</h1>
@@ -124,8 +121,8 @@
   </header>
 
   <section class="download" aria-label="Скачать">
-    <a class="button" href="https://github.com/agwor/macproxy/releases/download/v11.0.15-624/MacProxy-11.0.15-624-macos-arm64.dmg">Скачать MacProxy 11.0.15</a>
-    <p class="meta">DMG · 26,3 МБ · macOS 14 или новее · Mac на Apple Silicon (M1 и новее) · сборка 624, 9 ноября 2026</p>
+    <a class="button" href="https://github.com/agwor/macproxy/releases/download/v11.0.16-638/MacProxy-11.0.16-638-macos-arm64.dmg">Скачать MacProxy 11.0.16</a>
+    <p class="meta">DMG · 27,0 МБ · macOS 14 или новее · Mac на Apple Silicon (M1 и новее) · сборка 638, 9 ноября 2026</p>
   </section>
 
   <h2>Установка</h2>
@@ -143,8 +140,8 @@
 
   <h2>Проверка файла</h2>
   <p>Сравните контрольную сумму SHA-256 скачанного образа с этой:</p>
-  <pre><code>shasum -a 256 ~/Downloads/MacProxy-11.0.15-624-macos-arm64.dmg</code></pre>
-  <p class="hash">71f31f6e7bf44f9730585475d86b2734291aca06420e94d6210a71d3399013dc</p>
+  <pre><code>shasum -a 256 ~/Downloads/MacProxy-11.0.16-638-macos-arm64.dmg</code></pre>
+  <p class="hash">cd2f3b1238fc89851feb13abd7cc76ffdb3a7585c3235f38fbd339188eef82fd</p>
 
   <footer>
     <a href="https://github.com/agwor/macproxy/releases">Все выпуски</a> · у каждого — файл SHA256SUMS
