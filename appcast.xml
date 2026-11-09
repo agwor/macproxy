@@ -3,6 +3,23 @@
     <channel>
         <title>MacProxy</title>
         <item>
+            <title>11.0.14</title>
+            <pubDate>Mon, 09 Nov 2026 10:37:34 +0300</pubDate>
+            <sparkle:version>620</sparkle:version>
+            <sparkle:shortVersionString>11.0.14</sparkle:shortVersionString>
+            <sparkle:minimumSystemVersion>14.0</sparkle:minimumSystemVersion>
+            <sparkle:hardwareRequirements>arm64</sparkle:hardwareRequirements>
+            <description sparkle:format="markdown"><![CDATA[### Вид (проба)
+- «Ещё → Вид (проба) → Логотип»: три новых знака — глобус и «Кольцо» вместе, с анимациями глобуса (свет изнутри, прорисовка, щелчок в зелёный):
+  - «Глобус в кольце» — кольцо с разрывом, внутри прозрачный глобус;
+  - «Кольцо-глобус» — силуэт «Кольца», между кольцом и ядром вращаются меридианы;
+  - «Орбита» — глобус, вокруг него кольцо-орбита с разрывом.
+- У каждого свой значок в строке меню.
+- Четыре пробных варианта «Кольца» из 11.0.13 (Шлейф, Локатор, Сборка, Маятник) убраны — остаётся обычное «Кольцо».
+]]></description>
+            <enclosure url="https://github.com/agwor/macproxy/releases/download/v11.0.14-620/MacProxy-11.0.14-620-macos-arm64.zip" length="25857689" type="application/octet-stream" sparkle:edSignature="GY+Gr9jP2vG8wKVAIxKoedy55eW0zehN+c9y1S7bW8bOAa2mRgG3euee1mu2IE7I/9/7OtoPjkH6k74z/Do0AA=="/>
+        </item>
+        <item>
             <title>11.0.13</title>
             <pubDate>Sun, 08 Nov 2026 22:49:14 +0300</pubDate>
             <sparkle:version>613</sparkle:version>
