@@ -3,6 +3,20 @@
     <channel>
         <title>MacProxy</title>
         <item>
+            <title>11.0.17</title>
+            <pubDate>Tue, 10 Nov 2026 13:41:27 +0300</pubDate>
+            <sparkle:version>644</sparkle:version>
+            <sparkle:shortVersionString>11.0.17</sparkle:shortVersionString>
+            <sparkle:minimumSystemVersion>14.0</sparkle:minimumSystemVersion>
+            <sparkle:hardwareRequirements>arm64</sparkle:hardwareRequirements>
+            <description sparkle:format="markdown"><![CDATA[### Туннель без обрывов
+- Смена сервера, режима или настройки больше не рвёт соединения программ: новый Xray поднимается рядом со старым на тех же портах и сразу принимает новые подключения, а старый дослуживает уже открытые и гасится сам, когда они закончились.
+- Обновление ядра Xray тоже без обрыва: новое ядро сначала проверяется, и только потом получает подключения. Если проверка не прошла, работает прежнее — туннель остаётся «Подключено», ошибки нет.
+- Обновление MacProxy не выключает туннель: при установке Xray продолжает работать, и новая версия приложения его подхватывает. Обычный «Выйти» выключает туннель, как раньше.
+]]></description>
+            <enclosure url="https://github.com/agwor/macproxy/releases/download/v11.0.17-644/MacProxy-11.0.17-644-macos-arm64.zip" length="26549493" type="application/octet-stream" sparkle:edSignature="ugsaA0W1BPfLSuQsquh5JqXlqXLHdugICI0JlfHzM/5igKuNLubjFwGgacbe+IQAvnmK0Btx9DWN6OJfb4sVDg=="/>
+        </item>
+        <item>
             <title>11.0.16</title>
             <pubDate>Mon, 09 Nov 2026 23:34:58 +0300</pubDate>
             <sparkle:version>638</sparkle:version>
