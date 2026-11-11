@@ -3,6 +3,26 @@
     <channel>
         <title>MacProxy</title>
         <item>
+            <title>11.0.19</title>
+            <pubDate>Thu, 12 Nov 2026 01:12:26 +0300</pubDate>
+            <sparkle:version>689</sparkle:version>
+            <sparkle:shortVersionString>11.0.19</sparkle:shortVersionString>
+            <sparkle:minimumSystemVersion>14.0</sparkle:minimumSystemVersion>
+            <sparkle:hardwareRequirements>arm64</sparkle:hardwareRequirements>
+            <description sparkle:format="markdown"><![CDATA[### Подключение
+- Повторное «Вкл» после «Выкл» снова проходит все шаги: «Подключение…» → «Проверяем путь…» → «Подключено». Зелёный — только после проверки этого подключения, а не прошлого.
+- Если выбранный сервер то отвечает, то нет, MacProxy переходит на запасной после 3–5 провалов за полминуты, даже если между ними были удачные проверки. Обратно и туда-сюда не скачет: следующее такое решение — не раньше чем через минуту.
+
+### Программы
+- Если программа идёт через туннель, но часть её соединений уходит мимо него, в «Программах» под ней появляется строка «2 соединения идут напрямую». Строка только для сведения, ничего не блокирует. Проверка идёт, только пока открыта панель или окно «Программы». Число попадает и в отчёт «Проверка Мака».
+
+### После сбоя
+- Настройки → Общие → «Перезапускать после сбоя»: если MacProxy закроется из-за сбоя, он откроется снова, а туннель не прервётся. По умолчанию выключено; при включении macOS покажет уведомление о фоновом объекте.
+- Если MacProxy упал, а туннель работал, при следующем открытии он подхватывает работающее подключение, а не обрывает его — даже при «При запуске MacProxy: Не подключаться».
+]]></description>
+            <enclosure url="https://github.com/agwor/macproxy/releases/download/v11.0.19-689/MacProxy-11.0.19-689-macos-arm64.zip" length="26921728" type="application/octet-stream" sparkle:edSignature="SNy3hqJ4DFh6Kkmu23VFb/A/IS+xQ/0xyWCiENQwfv0az7Z3SW1JIR+wJvfk8ynODw3npgJsIbqwH0i7HT7EDg=="/>
+        </item>
+        <item>
             <title>11.0.18</title>
             <pubDate>Tue, 10 Nov 2026 22:06:12 +0300</pubDate>
             <sparkle:version>679</sparkle:version>
