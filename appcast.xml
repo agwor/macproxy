@@ -3,6 +3,21 @@
     <channel>
         <title>MacProxy</title>
         <item>
+            <title>11.0.21</title>
+            <pubDate>Thu, 12 Nov 2026 14:31:38 +0300</pubDate>
+            <sparkle:version>695</sparkle:version>
+            <sparkle:shortVersionString>11.0.21</sparkle:shortVersionString>
+            <sparkle:minimumSystemVersion>14.0</sparkle:minimumSystemVersion>
+            <sparkle:hardwareRequirements>arm64</sparkle:hardwareRequirements>
+            <description sparkle:format="markdown"><![CDATA[### Уведомления
+- Если уведомления MacProxy выключены в macOS, на Главной появляется строка «Уведомления о сбоях выключены в macOS» с кнопками «Включить…» и «Не сейчас».
+- «Включить…» открывает Системные настройки сразу на странице MacProxy в «Уведомлениях», а рядом — подсказку: включите «Допуск уведомлений» и вернитесь. MacProxy сам заметит, что уведомления включены: строка уйдёт, в Настройках появится «Разрешены».
+- «Не сейчас» прячет строку на неделю; строка в Настройках → Общие остаётся.
+- «Открыть настройки…» в Настройках → Общие теперь тоже ведёт сразу на страницу MacProxy.
+]]></description>
+            <enclosure url="https://github.com/agwor/macproxy/releases/download/v11.0.21-695/MacProxy-11.0.21-695-macos-arm64.zip" length="26945584" type="application/octet-stream" sparkle:edSignature="4i49Q4ihrDrQBy/+LtN+TiKwfV13FW4BS9zhdVg7F5dsagXl2vQzLNOA2Wkkuf8/nsq9L2n9rubIZ6iNrAi9BA=="/>
+        </item>
+        <item>
             <title>11.0.20</title>
             <pubDate>Thu, 12 Nov 2026 10:52:10 +0300</pubDate>
             <sparkle:version>692</sparkle:version>
