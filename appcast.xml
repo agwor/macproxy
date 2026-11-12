@@ -3,6 +3,20 @@
     <channel>
         <title>MacProxy</title>
         <item>
+            <title>11.0.20</title>
+            <pubDate>Thu, 12 Nov 2026 10:52:10 +0300</pubDate>
+            <sparkle:version>692</sparkle:version>
+            <sparkle:shortVersionString>11.0.20</sparkle:shortVersionString>
+            <sparkle:minimumSystemVersion>14.0</sparkle:minimumSystemVersion>
+            <sparkle:hardwareRequirements>arm64</sparkle:hardwareRequirements>
+            <description sparkle:format="markdown"><![CDATA[### Уведомления
+- Уведомления macOS снова работают: раньше MacProxy мог посчитать, что уже спросил разрешение, и молча не присылал ни одного уведомления. После обновления на Главной один раз появится «Предупреждать о проблемах…» — нажмите «Разрешить».
+- Настройки → Общие → «Уведомления macOS» показывают честное состояние: кнопка «Разрешить уведомления», «Разрешены» или «Открыть настройки…», если они выключены в macOS.
+- Уведомления приходят, когда MacProxy переходит на запасной сервер и возвращается, когда подписка сменила сервер и когда туннель не работает.
+]]></description>
+            <enclosure url="https://github.com/agwor/macproxy/releases/download/v11.0.20-692/MacProxy-11.0.20-692-macos-arm64.zip" length="26933897" type="application/octet-stream" sparkle:edSignature="4UGli6Lr/G/kmHGu6edLNzKoOYT6Aci4WKKEKREL4D9HCrecuIVhWt6HdzEko632BR0ltrpSVuCqccPcYrd+Bg=="/>
+        </item>
+        <item>
             <title>11.0.19</title>
             <pubDate>Thu, 12 Nov 2026 01:12:26 +0300</pubDate>
             <sparkle:version>689</sparkle:version>
