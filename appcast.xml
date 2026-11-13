@@ -1,7 +1,44 @@
-<?xml version="1.0" standalone="yes"?>
-<rss xmlns:sparkle="http://www.andymatuschak.org/xml-namespaces/sparkle" version="2.0">
+<?xml version="1.0" standalone="yes"?><!-- sparkle-sign-warning:
+IMPORTANT: This file was signed by Sparkle. Any modifications to this file requires re-signing this file with generate_appcast or sign_update! The signed signature will be embedded at the end of this file.
+--><rss xmlns:sparkle="http://www.andymatuschak.org/xml-namespaces/sparkle" version="2.0">
     <channel>
         <title>MacProxy</title>
+        <item>
+            <title>11.0.23</title>
+            <pubDate>Fri, 13 Nov 2026 23:05:13 +0300</pubDate>
+            <sparkle:version>731</sparkle:version>
+            <sparkle:shortVersionString>11.0.23</sparkle:shortVersionString>
+            <sparkle:minimumSystemVersion>14.0</sparkle:minimumSystemVersion>
+            <sparkle:hardwareRequirements>arm64</sparkle:hardwareRequirements>
+            <description sparkle:format="markdown"><![CDATA[### Удаление MacProxy
+- Настройки → Общие → «Удалить MacProxy…»: MacProxy сам убирает всё, что менял на Маке, — строку в настройках терминала, адрес туннеля в настройках Claude Code, автозапуск, значки программ — и переносит себя в Корзину.
+- Подписки и настройки стираются только если отметить «Стереть подписки и настройки».
+- На странице загрузки и в «ПРОЧТИ МЕНЯ» теперь сказано, что нужна подписка или прокси от вашего провайдера, что MacProxy меняет на Маке и как его удалить.
+
+### Первое подключение
+- Шаг про командную строку показывается, только если на Маке есть Claude Code или Codex, и называет файл, который изменит.
+- На Главной без подписки — одна кнопка «Добавить подписку».
+
+### Главная и меню
+- В ошибке туннель можно выключить: «Выключить туннель» в меню значка и в листе «Ошибка». Повторные попытки после этого прекращаются.
+- Основные кнопки в тёмной теме стали заметными.
+- В режиме энергосбережения глобус в строке меню не вращается.
+- Пробное подменю «Вид (проба)» убрано.
+
+### Тексты
+- Одни и те же вещи называются одинаково: «сервер», «подписка закончилась», «задержка», «Добавить подписку». В меню значка — «Сервер: Амстердам».
+- Технические слова остались только в «Подробнее».
+
+### Режим «Авто»
+- Погасший туннель будят и программы, которые ходят через SOCKS: Telegram с прокси MacProxy, отдельный профиль Firefox.
+
+### Надёжность
+- MacProxy не задерживает выключение Мака и выход из системы: на завершение у него 5 секунд.
+- Новая подписка получает свой идентификатор устройства для каждого провайдера. Уже добавленные подписки не меняются.
+- Лента обновлений подписывается целиком.
+]]></description>
+            <enclosure url="https://github.com/agwor/macproxy/releases/download/v11.0.23-731/MacProxy-11.0.23-731-macos-arm64.zip" length="27108662" type="application/octet-stream" sparkle:edSignature="ahkkQyn/b1w9CI4X6tEQ2hcLqQAfFbsg5QVtJzcF+84G/FzyiUl2U+T5GmAvZdQ6inkSR95/y/inqaNvvgI7Aw=="></enclosure>
+        </item>
         <item>
             <title>11.0.22</title>
             <pubDate>Fri, 13 Nov 2026 15:29:40 +0300</pubDate>
@@ -43,7 +80,7 @@
 - Скопированный адрес подписки помечается как скрытый и сам убирается из буфера через минуту.
 - Из ссылок серверов вырезаются опасные параметры, из названий — невидимые управляющие символы.
 ]]></description>
-            <enclosure url="https://github.com/agwor/macproxy/releases/download/v11.0.22-716/MacProxy-11.0.22-716-macos-arm64.zip" length="27029723" type="application/octet-stream" sparkle:edSignature="P2oXeqgiYyLEp0EyxGm99dRhnJNo8xG3tGXvXh09dLhG0toWduvhIKsdFU3YmY+xOErx+rBdM2zlUXMhZ1N9BQ=="/>
+            <enclosure url="https://github.com/agwor/macproxy/releases/download/v11.0.22-716/MacProxy-11.0.22-716-macos-arm64.zip" length="27029723" type="application/octet-stream" sparkle:edSignature="P2oXeqgiYyLEp0EyxGm99dRhnJNo8xG3tGXvXh09dLhG0toWduvhIKsdFU3YmY+xOErx+rBdM2zlUXMhZ1N9BQ=="></enclosure>
         </item>
         <item>
             <title>11.0.21</title>
@@ -58,7 +95,7 @@
 - «Не сейчас» прячет строку на неделю; строка в Настройках → Общие остаётся.
 - «Открыть настройки…» в Настройках → Общие теперь тоже ведёт сразу на страницу MacProxy.
 ]]></description>
-            <enclosure url="https://github.com/agwor/macproxy/releases/download/v11.0.21-695/MacProxy-11.0.21-695-macos-arm64.zip" length="26945584" type="application/octet-stream" sparkle:edSignature="4i49Q4ihrDrQBy/+LtN+TiKwfV13FW4BS9zhdVg7F5dsagXl2vQzLNOA2Wkkuf8/nsq9L2n9rubIZ6iNrAi9BA=="/>
+            <enclosure url="https://github.com/agwor/macproxy/releases/download/v11.0.21-695/MacProxy-11.0.21-695-macos-arm64.zip" length="26945584" type="application/octet-stream" sparkle:edSignature="4i49Q4ihrDrQBy/+LtN+TiKwfV13FW4BS9zhdVg7F5dsagXl2vQzLNOA2Wkkuf8/nsq9L2n9rubIZ6iNrAi9BA=="></enclosure>
         </item>
         <item>
             <title>11.0.20</title>
@@ -72,7 +109,7 @@
 - Настройки → Общие → «Уведомления macOS» показывают честное состояние: кнопка «Разрешить уведомления», «Разрешены» или «Открыть настройки…», если они выключены в macOS.
 - Уведомления приходят, когда MacProxy переходит на запасной сервер и возвращается, когда подписка сменила сервер и когда туннель не работает.
 ]]></description>
-            <enclosure url="https://github.com/agwor/macproxy/releases/download/v11.0.20-692/MacProxy-11.0.20-692-macos-arm64.zip" length="26933897" type="application/octet-stream" sparkle:edSignature="4UGli6Lr/G/kmHGu6edLNzKoOYT6Aci4WKKEKREL4D9HCrecuIVhWt6HdzEko632BR0ltrpSVuCqccPcYrd+Bg=="/>
+            <enclosure url="https://github.com/agwor/macproxy/releases/download/v11.0.20-692/MacProxy-11.0.20-692-macos-arm64.zip" length="26933897" type="application/octet-stream" sparkle:edSignature="4UGli6Lr/G/kmHGu6edLNzKoOYT6Aci4WKKEKREL4D9HCrecuIVhWt6HdzEko632BR0ltrpSVuCqccPcYrd+Bg=="></enclosure>
         </item>
         <item>
             <title>11.0.19</title>
@@ -92,7 +129,7 @@
 - Настройки → Общие → «Перезапускать после сбоя»: если MacProxy закроется из-за сбоя, он откроется снова, а туннель не прервётся. По умолчанию выключено; при включении macOS покажет уведомление о фоновом объекте.
 - Если MacProxy упал, а туннель работал, при следующем открытии он подхватывает работающее подключение, а не обрывает его — даже при «При запуске MacProxy: Не подключаться».
 ]]></description>
-            <enclosure url="https://github.com/agwor/macproxy/releases/download/v11.0.19-689/MacProxy-11.0.19-689-macos-arm64.zip" length="26921728" type="application/octet-stream" sparkle:edSignature="SNy3hqJ4DFh6Kkmu23VFb/A/IS+xQ/0xyWCiENQwfv0az7Z3SW1JIR+wJvfk8ynODw3npgJsIbqwH0i7HT7EDg=="/>
+            <enclosure url="https://github.com/agwor/macproxy/releases/download/v11.0.19-689/MacProxy-11.0.19-689-macos-arm64.zip" length="26921728" type="application/octet-stream" sparkle:edSignature="SNy3hqJ4DFh6Kkmu23VFb/A/IS+xQ/0xyWCiENQwfv0az7Z3SW1JIR+wJvfk8ynODw3npgJsIbqwH0i7HT7EDg=="></enclosure>
         </item>
         <item>
             <title>11.0.18</title>
@@ -127,7 +164,7 @@
 - Следующее обновление MacProxy пройдёт без резкого закрытия: новая версия откроется на том же месте, покажет «Готово» и вернётся на Главную.
 - Синий убран из «Серверов и подписок» и из знака подключения.
 ]]></description>
-            <enclosure url="https://github.com/agwor/macproxy/releases/download/v11.0.18-679/MacProxy-11.0.18-679-macos-arm64.zip" length="26823975" type="application/octet-stream" sparkle:edSignature="5YlrhOG8SfKz8ZogYBCQZwBMMePJdbAez5wF2dEqCtOgiFb4Voq+EGjgDDfChWhtU5IgPM4i1cpmsqJ/uOcRBA=="/>
+            <enclosure url="https://github.com/agwor/macproxy/releases/download/v11.0.18-679/MacProxy-11.0.18-679-macos-arm64.zip" length="26823975" type="application/octet-stream" sparkle:edSignature="5YlrhOG8SfKz8ZogYBCQZwBMMePJdbAez5wF2dEqCtOgiFb4Voq+EGjgDDfChWhtU5IgPM4i1cpmsqJ/uOcRBA=="></enclosure>
         </item>
         <item>
             <title>11.0.17</title>
@@ -141,7 +178,7 @@
 - Обновление ядра Xray тоже без обрыва: новое ядро сначала проверяется, и только потом получает подключения. Если проверка не прошла, работает прежнее — туннель остаётся «Подключено», ошибки нет.
 - Обновление MacProxy не выключает туннель: при установке Xray продолжает работать, и новая версия приложения его подхватывает. Обычный «Выйти» выключает туннель, как раньше.
 ]]></description>
-            <enclosure url="https://github.com/agwor/macproxy/releases/download/v11.0.17-644/MacProxy-11.0.17-644-macos-arm64.zip" length="26549493" type="application/octet-stream" sparkle:edSignature="ugsaA0W1BPfLSuQsquh5JqXlqXLHdugICI0JlfHzM/5igKuNLubjFwGgacbe+IQAvnmK0Btx9DWN6OJfb4sVDg=="/>
+            <enclosure url="https://github.com/agwor/macproxy/releases/download/v11.0.17-644/MacProxy-11.0.17-644-macos-arm64.zip" length="26549493" type="application/octet-stream" sparkle:edSignature="ugsaA0W1BPfLSuQsquh5JqXlqXLHdugICI0JlfHzM/5igKuNLubjFwGgacbe+IQAvnmK0Btx9DWN6OJfb4sVDg=="></enclosure>
         </item>
         <item>
             <title>11.0.16</title>
@@ -165,7 +202,7 @@
 - Задержка сервера — настоящая (время соединения), а не время всей проверки.
 - Синий убран: точка обновления в строке меню, ссылки и кнопки окна, страница и DMG.
 ]]></description>
-            <enclosure url="https://github.com/agwor/macproxy/releases/download/v11.0.16-638/MacProxy-11.0.16-638-macos-arm64.zip" length="26451888" type="application/octet-stream" sparkle:edSignature="aCl6WCrep/ivLhTkiL8+ZliAX7XBrwrhZy7R/ZmJF2xbB1qWtexRElUPovh4EARFn9sDNnatr3Q6i96tSr9ADA=="/>
+            <enclosure url="https://github.com/agwor/macproxy/releases/download/v11.0.16-638/MacProxy-11.0.16-638-macos-arm64.zip" length="26451888" type="application/octet-stream" sparkle:edSignature="aCl6WCrep/ivLhTkiL8+ZliAX7XBrwrhZy7R/ZmJF2xbB1qWtexRElUPovh4EARFn9sDNnatr3Q6i96tSr9ADA=="></enclosure>
         </item>
         <item>
             <title>11.0.15</title>
@@ -178,7 +215,7 @@
 - «Ещё → Вид (проба) → Логотип → Кольцо → глобус»: новый знак кнопки. В покое — «Кольцо»; при подключении разрыв смыкается, кольцо становится ободом и внутри проступает глобус; «Подключено» — зелёный крутящийся глобус; при выключении глобус плавно сворачивается обратно в кольцо.
 - Значок строки меню тоже превращается: кольцо ↔ глобус.
 ]]></description>
-            <enclosure url="https://github.com/agwor/macproxy/releases/download/v11.0.15-624/MacProxy-11.0.15-624-macos-arm64.zip" length="25899251" type="application/octet-stream" sparkle:edSignature="i/yUOdKjHzp6W2dUFRBSW3hKUGRWZ6FG8Y1kH1tfuUUm04l2zCV1XGGuXBDFPJGREYLp2GRepyPP2iJFqyoMCw=="/>
+            <enclosure url="https://github.com/agwor/macproxy/releases/download/v11.0.15-624/MacProxy-11.0.15-624-macos-arm64.zip" length="25899251" type="application/octet-stream" sparkle:edSignature="i/yUOdKjHzp6W2dUFRBSW3hKUGRWZ6FG8Y1kH1tfuUUm04l2zCV1XGGuXBDFPJGREYLp2GRepyPP2iJFqyoMCw=="></enclosure>
         </item>
         <item>
             <title>11.0.14</title>
@@ -195,7 +232,7 @@
 - У каждого свой значок в строке меню.
 - Четыре пробных варианта «Кольца» из 11.0.13 (Шлейф, Локатор, Сборка, Маятник) убраны — остаётся обычное «Кольцо».
 ]]></description>
-            <enclosure url="https://github.com/agwor/macproxy/releases/download/v11.0.14-620/MacProxy-11.0.14-620-macos-arm64.zip" length="25857689" type="application/octet-stream" sparkle:edSignature="GY+Gr9jP2vG8wKVAIxKoedy55eW0zehN+c9y1S7bW8bOAa2mRgG3euee1mu2IE7I/9/7OtoPjkH6k74z/Do0AA=="/>
+            <enclosure url="https://github.com/agwor/macproxy/releases/download/v11.0.14-620/MacProxy-11.0.14-620-macos-arm64.zip" length="25857689" type="application/octet-stream" sparkle:edSignature="GY+Gr9jP2vG8wKVAIxKoedy55eW0zehN+c9y1S7bW8bOAa2mRgG3euee1mu2IE7I/9/7OtoPjkH6k74z/Do0AA=="></enclosure>
         </item>
         <item>
             <title>11.0.13</title>
@@ -210,7 +247,7 @@
 ### Меню
 - «Ещё → Режим ▸» показывает оба выбора сразу: например, «Режим: Вручную · без сети».
 ]]></description>
-            <enclosure url="https://github.com/agwor/macproxy/releases/download/v11.0.13-613/MacProxy-11.0.13-613-macos-arm64.zip" length="25908049" type="application/octet-stream" sparkle:edSignature="a+Ftz+sAsNjPplmr5V6xdc/QiP5Xt7sd0VD3GSFMp0O1M73d7JS9/iVAr1X16wzQAHYi3N9OlEunqOqgZw45AA=="/>
+            <enclosure url="https://github.com/agwor/macproxy/releases/download/v11.0.13-613/MacProxy-11.0.13-613-macos-arm64.zip" length="25908049" type="application/octet-stream" sparkle:edSignature="a+Ftz+sAsNjPplmr5V6xdc/QiP5Xt7sd0VD3GSFMp0O1M73d7JS9/iVAr1X16wzQAHYi3N9OlEunqOqgZw45AA=="></enclosure>
         </item>
         <item>
             <title>11.0.12</title>
@@ -236,7 +273,7 @@
 - «Плавный свет»: подключение серебром вместо синего, переход «Подключено» ↔ ошибка без бурых кадров.
 - «Кольцо»: спокойнее и матовое — при подключении двигается только разрыв.
 ]]></description>
-            <enclosure url="https://github.com/agwor/macproxy/releases/download/v11.0.12-607/MacProxy-11.0.12-607-macos-arm64.zip" length="25745194" type="application/octet-stream" sparkle:edSignature="5sSLvmChQroiJ/FzrVA9LizE4CV+FlzTtOFSTSN59vYyKEElateLCjODnoKXsvdmCldwsiBo9m77Rgf21KNPCg=="/>
+            <enclosure url="https://github.com/agwor/macproxy/releases/download/v11.0.12-607/MacProxy-11.0.12-607-macos-arm64.zip" length="25745194" type="application/octet-stream" sparkle:edSignature="5sSLvmChQroiJ/FzrVA9LizE4CV+FlzTtOFSTSN59vYyKEElateLCjODnoKXsvdmCldwsiBo9m77Rgf21KNPCg=="></enclosure>
         </item>
         <item>
             <title>11.0.11</title>
@@ -252,7 +289,7 @@
 ### Главная
 - Под строкой состояния больше нет пустого места, подписи всегда в одну строку.
 ]]></description>
-            <enclosure url="https://github.com/agwor/macproxy/releases/download/v11.0.11-588/MacProxy-11.0.11-588-macos-arm64.zip" length="26184792" type="application/octet-stream" sparkle:edSignature="AkpNJh9sE7jpYowLvKa44A4dmRatAiBMECUHJBnpHgXL2wy8jlXxlvMoRnHCUvmRtC8Ml4o0vsg3wUUybH9aCA=="/>
+            <enclosure url="https://github.com/agwor/macproxy/releases/download/v11.0.11-588/MacProxy-11.0.11-588-macos-arm64.zip" length="26184792" type="application/octet-stream" sparkle:edSignature="AkpNJh9sE7jpYowLvKa44A4dmRatAiBMECUHJBnpHgXL2wy8jlXxlvMoRnHCUvmRtC8Ml4o0vsg3wUUybH9aCA=="></enclosure>
         </item>
         <item>
             <title>11.0.10</title>
@@ -264,7 +301,7 @@
             <description sparkle:format="markdown"><![CDATA[### Новое
 - «Ещё → Вид (проба) → Логотип»: новый знак «Точка в дыру» — исходная «Точка в кольце», которую при подключении затягивает в чёрную дыру. Пока туннель работает, вокруг ядра крутится зелёный диск; при ошибке дыра краснеет и выплёвывает точку. Подключение — без синего, нейтральным светом.
 ]]></description>
-            <enclosure url="https://github.com/agwor/macproxy/releases/download/v11.0.10-577/MacProxy-11.0.10-577-macos-arm64.zip" length="26132083" type="application/octet-stream" sparkle:edSignature="zCeNio1A6jmWoWXy8EIgVul6ccakFxdP1+Pga5enu+MIwwh95Gb2RLEHkPP325X6UAjkJtRaEFHXr8ZInCfvAg=="/>
+            <enclosure url="https://github.com/agwor/macproxy/releases/download/v11.0.10-577/MacProxy-11.0.10-577-macos-arm64.zip" length="26132083" type="application/octet-stream" sparkle:edSignature="zCeNio1A6jmWoWXy8EIgVul6ccakFxdP1+Pga5enu+MIwwh95Gb2RLEHkPP325X6UAjkJtRaEFHXr8ZInCfvAg=="></enclosure>
         </item>
         <item>
             <title>11.0.9</title>
@@ -277,7 +314,7 @@
 - «Ещё → Вид (проба) → Логотип»: новый знак «Сборка» — прозрачный глобус из двух половин со светом в шве. При подключении половины расходятся и крутятся навстречу, при «Подключено» смыкаются.
 - «Кнопка-портал» по-новому: P засасывается в портал целиком, и пока туннель работает, портал крутится зелёным.
 ]]></description>
-            <enclosure url="https://github.com/agwor/macproxy/releases/download/v11.0.9-572/MacProxy-11.0.9-572-macos-arm64.zip" length="26076980" type="application/octet-stream" sparkle:edSignature="ncULkhZFcFDkfScRlCN/9fgbekJjBE/SXQobBZm1treZibXcyM3P9qxu2vAtr+8IMXKjKeSp0wsxJu9y7RtTBw=="/>
+            <enclosure url="https://github.com/agwor/macproxy/releases/download/v11.0.9-572/MacProxy-11.0.9-572-macos-arm64.zip" length="26076980" type="application/octet-stream" sparkle:edSignature="ncULkhZFcFDkfScRlCN/9fgbekJjBE/SXQobBZm1treZibXcyM3P9qxu2vAtr+8IMXKjKeSp0wsxJu9y7RtTBw=="></enclosure>
         </item>
         <item>
             <title>11.0.8</title>
@@ -295,7 +332,7 @@
 - Повтор и переподключение идут сразу из ошибки или «Подключено», без захода в «выкл».
 - Красная вспышка ошибки загорается вместе с красным цветом кнопки, без бурого кольца. Точка у слова состояния меняет цвет в тот же миг, что и кнопка.
 ]]></description>
-            <enclosure url="https://github.com/agwor/macproxy/releases/download/v11.0.8-556/MacProxy-11.0.8-556-macos-arm64.zip" length="26028397" type="application/octet-stream" sparkle:edSignature="7tjmIMXWEi+CQZVz7g5G67jJddj2vSEQo7ukbZKL3BGawy4giiNrtYghzwEwfRTZLYuCMyR09z+FUEJORTlIDQ=="/>
+            <enclosure url="https://github.com/agwor/macproxy/releases/download/v11.0.8-556/MacProxy-11.0.8-556-macos-arm64.zip" length="26028397" type="application/octet-stream" sparkle:edSignature="7tjmIMXWEi+CQZVz7g5G67jJddj2vSEQo7ukbZKL3BGawy4giiNrtYghzwEwfRTZLYuCMyR09z+FUEJORTlIDQ=="></enclosure>
         </item>
         <item>
             <title>11.0.7</title>
@@ -317,7 +354,7 @@
 - Жёлтой подсветки больше нет: «порт занят», «подписка не обновилась», «не подключится» — красным, подсказки без ошибки — серым.
 - «не работает», «не отвечает», «не подключится» стоят справа на месте пинга, одной строкой; город больше не обрезается.
 ]]></description>
-            <enclosure url="https://github.com/agwor/macproxy/releases/download/v11.0.7-543/MacProxy-11.0.7-543-macos-arm64.zip" length="25803019" type="application/octet-stream" sparkle:edSignature="qn0xylHvwQ8inS6GWRGXN/86JnUTE9w8ZrR1SbrODIwdBtvs6f7S2RuJqjOUhWXMFNag5rxka5a81zk6q/QLBw=="/>
+            <enclosure url="https://github.com/agwor/macproxy/releases/download/v11.0.7-543/MacProxy-11.0.7-543-macos-arm64.zip" length="25803019" type="application/octet-stream" sparkle:edSignature="qn0xylHvwQ8inS6GWRGXN/86JnUTE9w8ZrR1SbrODIwdBtvs6f7S2RuJqjOUhWXMFNag5rxka5a81zk6q/QLBw=="></enclosure>
         </item>
         <item>
             <title>11.0.6</title>
@@ -336,7 +373,7 @@
 - Своему прокси и отдельной ссылке строка внизу Главной больше не повторяет имя и страну.
 - Ссылка на один сервер везде называется одинаково — «отдельная ссылка».
 ]]></description>
-            <enclosure url="https://github.com/agwor/macproxy/releases/download/v11.0.6-511/MacProxy-11.0.6-511-macos-arm64.zip" length="25495518" type="application/octet-stream" sparkle:edSignature="GN7JbvIkm52b74REyaVJvI5f8rKut4XHc0QA3SLa4CW5gr86BCrp+OtLtRBueqINW36Vo7eFFTzi/QOiOzRfAQ=="/>
+            <enclosure url="https://github.com/agwor/macproxy/releases/download/v11.0.6-511/MacProxy-11.0.6-511-macos-arm64.zip" length="25495518" type="application/octet-stream" sparkle:edSignature="GN7JbvIkm52b74REyaVJvI5f8rKut4XHc0QA3SLa4CW5gr86BCrp+OtLtRBueqINW36Vo7eFFTzi/QOiOzRfAQ=="></enclosure>
         </item>
         <item>
             <title>11.0.5</title>
@@ -359,7 +396,7 @@
 - Точка у «Подключено» загорается тем же цветом и в тот же миг, что свет кнопки.
 - Пинг больше не красится в оранжевый: до 60 мс — зелёный, дальше — обычным цветом.
 ]]></description>
-            <enclosure url="https://github.com/agwor/macproxy/releases/download/v11.0.5-505/MacProxy-11.0.5-505-macos-arm64.zip" length="25491899" type="application/octet-stream" sparkle:edSignature="44nfOC7hZgPdUW2fcRGlv1kYPI7x3+3kzc3pOsVqDGpNqBVOoQa4tf6cqDF5YVIo4Tb08HqXoHzrYzVB9SjVAg=="/>
+            <enclosure url="https://github.com/agwor/macproxy/releases/download/v11.0.5-505/MacProxy-11.0.5-505-macos-arm64.zip" length="25491899" type="application/octet-stream" sparkle:edSignature="44nfOC7hZgPdUW2fcRGlv1kYPI7x3+3kzc3pOsVqDGpNqBVOoQa4tf6cqDF5YVIo4Tb08HqXoHzrYzVB9SjVAg=="></enclosure>
         </item>
         <item>
             <title>11.0.4</title>
@@ -379,7 +416,7 @@
 - Кнопка «Как сейчас, доведённая»: свет по кольцу больше не подлагивает при подключении.
 - Кнопка снова держит ровные 60 кадров в секунду после того, как панель закрывали.
 ]]></description>
-            <enclosure url="https://github.com/agwor/macproxy/releases/download/v11.0.4-491/MacProxy-11.0.4-491-macos-arm64.zip" length="25375102" type="application/octet-stream" sparkle:edSignature="0R9wKQaaWvDg42DED8ehzbsjkXUx5hKBv9Y9Gaf2+1lYZxNi9flWpHlDg21sriOxlNQzj/VDTj1UZGqFE+/tBg=="/>
+            <enclosure url="https://github.com/agwor/macproxy/releases/download/v11.0.4-491/MacProxy-11.0.4-491-macos-arm64.zip" length="25375102" type="application/octet-stream" sparkle:edSignature="0R9wKQaaWvDg42DED8ehzbsjkXUx5hKBv9Y9Gaf2+1lYZxNi9flWpHlDg21sriOxlNQzj/VDTj1UZGqFE+/tBg=="></enclosure>
         </item>
         <item>
             <title>11.0.3</title>
@@ -400,7 +437,7 @@
 - Если разрешить вход в систему в Системных настройках, окно больше не показывает «Ждёт разрешения».
 - «О программе → Компоненты» — только библиотеки, которые лежат в приложении.
 ]]></description>
-            <enclosure url="https://github.com/agwor/macproxy/releases/download/v11.0.3-477/MacProxy-11.0.3-477-macos-arm64.zip" length="25252137" type="application/octet-stream" sparkle:edSignature="/fz60PR+DHO3iHxhPOuBRRs8jZNBvve+Fiegw0HLDZ8RwFXH4BkkqyIbrzckH78sCmE80sq5K0gRX66/uvayCw=="/>
+            <enclosure url="https://github.com/agwor/macproxy/releases/download/v11.0.3-477/MacProxy-11.0.3-477-macos-arm64.zip" length="25252137" type="application/octet-stream" sparkle:edSignature="/fz60PR+DHO3iHxhPOuBRRs8jZNBvve+Fiegw0HLDZ8RwFXH4BkkqyIbrzckH78sCmE80sq5K0gRX66/uvayCw=="></enclosure>
         </item>
         <item>
             <title>11.0.2</title>
@@ -415,7 +452,7 @@
 - Сервер без шифрования: новое ядро Xray к такому серверу в интернете не подключается, и MacProxy теперь так и пишет — в списке серверов строка подсвечена заранее, а «Проверка» и «Подробнее» у ошибки советуют, что сделать.
 - «Самый быстрый» больше не выбирает сервер, к которому ядро не подключится.
 ]]></description>
-            <enclosure url="https://github.com/agwor/macproxy/releases/download/v11.0.2-461/MacProxy-11.0.2-461-macos-arm64.zip" length="24900340" type="application/octet-stream" sparkle:edSignature="iUM1nbqUzTcyi6Md/5YDHi34jMkkQVJIxD6P5/J9tE9pKh/FwYbyFKwdLqiyrjMLLHIE+2xFGCo02zGsbj/VBA=="/>
+            <enclosure url="https://github.com/agwor/macproxy/releases/download/v11.0.2-461/MacProxy-11.0.2-461-macos-arm64.zip" length="24900340" type="application/octet-stream" sparkle:edSignature="iUM1nbqUzTcyi6Md/5YDHi34jMkkQVJIxD6P5/J9tE9pKh/FwYbyFKwdLqiyrjMLLHIE+2xFGCo02zGsbj/VBA=="></enclosure>
         </item>
         <item>
             <title>11.0.1</title>
@@ -431,7 +468,7 @@
 - Обновлён движок анимации кнопки подключения.
 - Заодно проверяем, что обновления доходят сами.
 ]]></description>
-            <enclosure url="https://github.com/agwor/macproxy/releases/download/v11.0.1-447/MacProxy-11.0.1-447-macos-arm64.zip" length="24743460" type="application/octet-stream" sparkle:edSignature="oZ5pP3CdaJY3uSnZgRCOWyq9TQoHsGp10wtInRYOLnzUAsUkZqNRQ+p9zCy78+Otek91H0klIwbmMHaGhm1KBw=="/>
+            <enclosure url="https://github.com/agwor/macproxy/releases/download/v11.0.1-447/MacProxy-11.0.1-447-macos-arm64.zip" length="24743460" type="application/octet-stream" sparkle:edSignature="oZ5pP3CdaJY3uSnZgRCOWyq9TQoHsGp10wtInRYOLnzUAsUkZqNRQ+p9zCy78+Otek91H0klIwbmMHaGhm1KBw=="></enclosure>
         </item>
         <item>
             <title>11.0.0</title>
@@ -446,7 +483,10 @@
 - Открыли MacProxy прямо из образа или из «Загрузок» — он сам предложит перенести себя в «Программы».
 - «Настройки → Общие»: открывать при входе в систему и уведомления.
 ]]></description>
-            <enclosure url="https://github.com/agwor/macproxy/releases/download/v11.0.0-441/MacProxy-11.0.0-441-macos-arm64.zip" length="23037010" type="application/octet-stream" sparkle:edSignature="B20HQRVqqXOX38obT+TbwGkO5/BHDgYYky+v23acQY+qWCqh8g4ue5Yq7rvr8pVIGDzTRyv5xQH9wpDRWfOXAQ=="/>
+            <enclosure url="https://github.com/agwor/macproxy/releases/download/v11.0.0-441/MacProxy-11.0.0-441-macos-arm64.zip" length="23037010" type="application/octet-stream" sparkle:edSignature="B20HQRVqqXOX38obT+TbwGkO5/BHDgYYky+v23acQY+qWCqh8g4ue5Yq7rvr8pVIGDzTRyv5xQH9wpDRWfOXAQ=="></enclosure>
         </item>
     </channel>
-</rss>
+</rss><!-- sparkle-signatures:
+edSignature: HuQxXF3erGIqV/aLWMdrjZcXgVq/REW/R2TfO35S+6+uXDPepNhUkIX9pagcjYrvw6EzhEckpxKvtX3asDbVBg==
+length: 56097
+-->
