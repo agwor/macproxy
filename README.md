@@ -1,19 +1,21 @@
 # MacProxy
 
+**Только Mac на Apple Silicon, macOS 14 или новее.** Для Mac с процессором Intel сборки нет.
+
 Приложение в строке меню macOS: выбранные вами программы ходят через ваш сервер, остальные — напрямую.
-macOS 14 или новее, только Mac на Apple Silicon (M1 и новее), для Intel сборки нет.
 
 **Нужна подписка или прокси от вашего провайдера VPN. Серверов MacProxy не продаёт.** Подойдёт ссылка вида `https://…`, `vless://…`
 или `socks5://…`. Как удалить — [ниже](#как-удалить).
 
 **Что меняет на Маке.** Через туннель идут только программы, которые вы выбрали; браузеры открываются в отдельном профиле MacProxy.
-Файлы Мака (`~/.zshrc`, `~/.claude/settings.json`) меняются, только если вы сами отметите Claude Code, Codex CLI или Терминал.
+Файлы Мака (`~/.zshrc` или файл входа bash, `~/.claude/settings.json`) меняются, только если вы сами отметите Claude Code, Codex CLI
+или Терминал.
 
 **Чего не меняет.** Системный прокси не включает и весь Мак через туннель не пускает: остальные программы работают напрямую.
 
 Здесь лежат только готовые сборки и лента обновлений.
 
-**Последняя версия — 11.0.23** (сборка 731, 13 ноября 2026): [скачать MacProxy-11.0.23-731-macos-arm64.dmg](https://github.com/agwor/macproxy/releases/download/v11.0.23-731/MacProxy-11.0.23-731-macos-arm64.dmg) · [все выпуски](https://github.com/agwor/macproxy/releases)
+**Последняя версия — 11.0.24** (сборка 737, 14 ноября 2026): [скачать MacProxy-11.0.24-737-macos-arm64.dmg](https://github.com/agwor/macproxy/releases/download/v11.0.24-737/MacProxy-11.0.24-737-macos-arm64.dmg) · [все выпуски](https://github.com/agwor/macproxy/releases)
 
 ## Установка
 
@@ -33,24 +35,30 @@ xattr -dr com.apple.quarantine /Applications/MacProxy.app
 
 ## Как удалить
 
-1. В MacProxy: **Настройки → Общие → «Удалить MacProxy…»**. Кнопка выключит туннель, уберёт строку MacProxy из `~/.zshrc` и свои
-   ключи прокси из `~/.claude/settings.json` (остальное в этих файлах не меняется), значки «… (proxy)» из `~/Applications`, автозапуск
-   и перезапуск после сбоя, а затем перенесёт приложение в Корзину. Подписки и настройки стираются, только если отметить флажок.
-2. Если приложение уже в Корзине: в `~/.zshrc` (и `~/.bash_profile`, `~/.bashrc`, если есть) удалите строки от `# >>> macproxy >>>`
-   до `# <<< macproxy <<<`; в `~/.claude/settings.json` — `HTTPS_PROXY` и `HTTP_PROXY` с адресом `127.0.0.1` в разделе `env`;
-   удалите папку `~/.config/macproxy` и значки «… (proxy).app» в `~/Applications`.
+1. В MacProxy: **Настройки → Общие → «Удалить MacProxy…»**. Кнопка выключит туннель, уберёт строку MacProxy из `~/.zshrc` (у bash —
+   из `~/.bash_profile`, `~/.bash_login` или `~/.profile`) и свои ключи прокси из `~/.claude/settings.json` (остальное в этих файлах не
+   меняется), значки «… (proxy)» из `~/Applications`, автозапуск и перезапуск после сбоя, а затем перенесёт приложение в Корзину.
+   Подписки и настройки стираются, только если отметить флажок.
+2. Если приложение уже в Корзине:
+   - в `~/.zshrc`, `~/.bash_profile`, `~/.bash_login`, `~/.profile` и `~/.bashrc` (какие есть) удалите строки от `# >>> macproxy >>>`
+     до `# <<< macproxy <<<`;
+   - в `~/.claude/settings.json` — `HTTPS_PROXY` и `HTTP_PROXY` с адресом `127.0.0.1` в разделе `env`; копию
+     `~/.claude/settings.json.bak-macproxy` (ваш файл до MacProxy) удалите, если она не нужна;
+   - удалите папку `~/.config/macproxy` и значки «… (proxy).app» в `~/Applications`; если вы перетаскивали их в Dock — уберите и оттуда;
+   - уберите MacProxy в **Системные настройки → Основные → Объекты входа и расширения**.
 3. Данные лежат в `~/Library/Application Support/MacProxy`, `~/Library/Logs/MacProxy` и `~/Library/Caches/MacProxy` — их можно удалить.
+   Настройки приложения — командой `defaults delete io.github.agwor.macproxy`.
 
 ## Проверка файла
 
 Сравните контрольную сумму скачанного образа с этой (она же — в файле `SHA256SUMS` каждого выпуска):
 
 ```sh
-shasum -a 256 ~/Downloads/MacProxy-11.0.23-731-macos-arm64.dmg
+shasum -a 256 ~/Downloads/MacProxy-11.0.24-737-macos-arm64.dmg
 ```
 
 ```
-8418c148510d8304c1e349d99625627d14ffa7556d45468901ba55fabe7441f3  MacProxy-11.0.23-731-macos-arm64.dmg
+d84a6603f24d71d1ee903834e76d388a4aec88980974d9faddd129f557dedb66  MacProxy-11.0.24-737-macos-arm64.dmg
 ```
 
 ## Обновления
