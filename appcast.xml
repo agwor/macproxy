@@ -6,6 +6,25 @@ IMPORTANT: This file was signed by Sparkle. Any modifications to this file requi
     <channel>
         <title>MacProxy</title>
         <item>
+            <title>11.0.25</title>
+            <pubDate>Mon, 23 Nov 2026 17:14:23 +0300</pubDate>
+            <sparkle:version>744</sparkle:version>
+            <sparkle:shortVersionString>11.0.25</sparkle:shortVersionString>
+            <sparkle:minimumSystemVersion>14.0</sparkle:minimumSystemVersion>
+            <sparkle:hardwareRequirements>arm64</sparkle:hardwareRequirements>
+            <description sparkle:format="markdown"><![CDATA[### Избранное после перезагрузки
+- Если macOS при входе сама открыла избранные программы раньше MacProxy, он перезапускает их через туннель, как только подключится. Окно остаётся скрытым, если было скрыто.
+- Если открыть MacProxy позже, уже работающие программы он, как и раньше, не трогает.
+
+### Журналы
+- Если файлы журнала MacProxy перенесли или удалили, он заводит новые на прежнем месте, а не пишет в старые.
+
+### Окно
+- Группа «Настройки» в боковой панели больше не сворачивается: «Общие», «Сеть», «Обновления» и «Приватность» всегда на виду.
+]]></description>
+            <enclosure url="https://github.com/agwor/macproxy/releases/download/v11.0.25-744/MacProxy-11.0.25-744-macos-arm64.zip" length="27147650" type="application/octet-stream" sparkle:edSignature="1aSgOwmDr/4f2eYmasm9oERziSmzpsBxZjrNwXKvCy2UiyDoLjGL86weeMhiGvYQuXknsw0Ur9onEL0e4p1uBg=="/>
+        </item>
+        <item>
             <title>11.0.24</title>
             <pubDate>Sat, 14 Nov 2026 15:14:47 +0300</pubDate>
             <sparkle:version>737</sparkle:version>
@@ -527,6 +546,6 @@ IMPORTANT: This file was signed by Sparkle. Any modifications to this file requi
     </channel>
 </rss>
 <!-- sparkle-signatures:
-edSignature: 4i0PGtUclLOovnm5paUQvs8J1atw8QjSEdkDwQA8qiL1jJZi/p7ei58meRKjtJJ/tf14Y89XZ6ldAQu9g3G6Dg==
-length: 59713
+edSignature: 63PZVVMeSSubdnB9r0AvK5C/LDhx0XcwajKJ65uTc3IBAdVHMmQhf0p86E766xFlKhD2PgtvwdAmwQVYr2aBCQ==
+length: 61454
 -->
