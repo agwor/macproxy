@@ -10,11 +10,11 @@
 Приложение в строке меню macOS: через туннель идут только выбранные программы, остальной Мак — напрямую.</p>
 
 <p align="center">
-  <a href="https://github.com/agwor/macproxy/releases/download/v11.0.26-750/MacProxy-11.0.26-750-macos-arm64.dmg"><b>Скачать MacProxy 11.0.26</b></a> (DMG, 27,5 МБ) ·
+  <a href="https://github.com/agwor/macproxy/releases/download/v11.0.27-757/MacProxy-11.0.27-757-macos-arm64.dmg"><b>Скачать MacProxy 11.0.27</b></a> (DMG, 27,5 МБ) ·
   <a href="https://github.com/agwor/macproxy/releases">Все выпуски</a> ·
   <a href="https://agwor.github.io/macproxy/">Сайт</a>
   <br>
-  <sub>Только Apple Silicon · macOS 14 или новее · сборка 750, 24 ноября 2026</sub>
+  <sub>Только Apple Silicon · macOS 14 или новее · сборка 757, 25 ноября 2026</sub>
 </p>
 
 <p align="center">
@@ -126,11 +126,11 @@ xattr -dr com.apple.quarantine /Applications/MacProxy.app
 Сравните контрольную сумму скачанного образа с этой (она же — в файле `SHA256SUMS` каждого выпуска):
 
 ```sh
-shasum -a 256 ~/Downloads/MacProxy-11.0.26-750-macos-arm64.dmg
+shasum -a 256 ~/Downloads/MacProxy-11.0.27-757-macos-arm64.dmg
 ```
 
 ```
-88467847888ffca9dc3ab368ea926e3c761bb4f76a3e0a8051696911d734b6e7  MacProxy-11.0.26-750-macos-arm64.dmg
+06f7597640072b195f98e467eec7e4c9aac51f2cb79a21c703a7db04a2584556  MacProxy-11.0.27-757-macos-arm64.dmg
 ```
 
 ## Обновления

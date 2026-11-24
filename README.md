@@ -10,11 +10,11 @@
 A macOS menu bar app: only the apps you pick go through the tunnel, the rest of your Mac stays direct.</p>
 
 <p align="center">
-  <a href="https://github.com/agwor/macproxy/releases/download/v11.0.26-750/MacProxy-11.0.26-750-macos-arm64.dmg"><b>Download MacProxy 11.0.26</b></a> (DMG, 27.5 MB) ·
+  <a href="https://github.com/agwor/macproxy/releases/download/v11.0.27-757/MacProxy-11.0.27-757-macos-arm64.dmg"><b>Download MacProxy 11.0.27</b></a> (DMG, 27.5 MB) ·
   <a href="https://github.com/agwor/macproxy/releases">All releases</a> ·
   <a href="https://agwor.github.io/macproxy/">Website</a>
   <br>
-  <sub>Apple Silicon only · macOS 14 or later · build 750, November 24, 2026 · the app's interface is in Russian for now</sub>
+  <sub>Apple Silicon only · macOS 14 or later · build 757, November 25, 2026 · the app's interface is in Russian for now</sub>
 </p>
 
 <p align="center">
@@ -126,11 +126,11 @@ There is no Dock icon: MacProxy lives in the menu bar.
 Compare the checksum of the downloaded image with this one (it is also in the `SHA256SUMS` file of every release):
 
 ```sh
-shasum -a 256 ~/Downloads/MacProxy-11.0.26-750-macos-arm64.dmg
+shasum -a 256 ~/Downloads/MacProxy-11.0.27-757-macos-arm64.dmg
 ```
 
 ```
-88467847888ffca9dc3ab368ea926e3c761bb4f76a3e0a8051696911d734b6e7  MacProxy-11.0.26-750-macos-arm64.dmg
+06f7597640072b195f98e467eec7e4c9aac51f2cb79a21c703a7db04a2584556  MacProxy-11.0.27-757-macos-arm64.dmg
 ```
 
 ## Updates
