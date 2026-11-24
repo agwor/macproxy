@@ -6,6 +6,20 @@ IMPORTANT: This file was signed by Sparkle. Any modifications to this file requi
     <channel>
         <title>MacProxy</title>
         <item>
+            <title>11.0.26</title>
+            <pubDate>Tue, 24 Nov 2026 03:23:00 +0300</pubDate>
+            <sparkle:version>750</sparkle:version>
+            <sparkle:shortVersionString>11.0.26</sparkle:shortVersionString>
+            <sparkle:minimumSystemVersion>14.0</sparkle:minimumSystemVersion>
+            <sparkle:hardwareRequirements>arm64</sparkle:hardwareRequirements>
+            <description sparkle:format="markdown"><![CDATA[### Без старой версии
+- Убрана поддержка прежнего MacProxy v10: его поиск, перенос настроек и переход с него. В «Проверке Мака» больше нет строк «Найден MacProxy v10» и «SwiftBar».
+- Серверы, перенесённые раньше из v10, остаются в «Ссылках».
+- Если наш порт занят другой программой, MacProxy, как и раньше, сообщает «Порт занят» и предлагает сменить порт.
+]]></description>
+            <enclosure url="https://github.com/agwor/macproxy/releases/download/v11.0.26-750/MacProxy-11.0.26-750-macos-arm64.zip" length="26989418" type="application/octet-stream" sparkle:edSignature="4i1wFo5IJ0/M6b5qlE3hreszOlzMr4jyaDV443tnjonv20g4x/0U5K/6k4YpnyCa8dENNitJ60fp0Xy4aaaMAA=="/>
+        </item>
+        <item>
             <title>11.0.25</title>
             <pubDate>Mon, 23 Nov 2026 17:14:23 +0300</pubDate>
             <sparkle:version>744</sparkle:version>
@@ -546,6 +560,6 @@ IMPORTANT: This file was signed by Sparkle. Any modifications to this file requi
     </channel>
 </rss>
 <!-- sparkle-signatures:
-edSignature: 63PZVVMeSSubdnB9r0AvK5C/LDhx0XcwajKJ65uTc3IBAdVHMmQhf0p86E766xFlKhD2PgtvwdAmwQVYr2aBCQ==
-length: 61454
+edSignature: J2PGEgq9a2kmv+llzwVdwbLVKLJTdASi20gKdfHNZ4cuoTejL2WTls1IMYXfogI99NoJ5Xjn5JcCa3JE6UbODg==
+length: 62838
 -->
