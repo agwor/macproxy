@@ -6,6 +6,21 @@ IMPORTANT: This file was signed by Sparkle. Any modifications to this file requi
     <channel>
         <title>MacProxy</title>
         <item>
+            <title>11.0.27</title>
+            <pubDate>Wed, 25 Nov 2026 00:46:13 +0300</pubDate>
+            <sparkle:version>757</sparkle:version>
+            <sparkle:shortVersionString>11.0.27</sparkle:shortVersionString>
+            <sparkle:minimumSystemVersion>14.0</sparkle:minimumSystemVersion>
+            <sparkle:hardwareRequirements>arm64</sparkle:hardwareRequirements>
+            <description sparkle:format="markdown"><![CDATA[### Codex в Терминале
+- Команда `codex`, запущенная в Терминале через MacProxy, больше не убирает из окружения ключ API OpenAI: вход по ключу работает как без MacProxy. Прокси по-прежнему включается только для самого Codex.
+
+### Прозрачность
+- Точнее описано, как проверяется ядро Xray: приложение сверяет сумму архива с указанной в релизе XTLS/Xray-core и перед включением делает пробный запуск.
+]]></description>
+            <enclosure url="https://github.com/agwor/macproxy/releases/download/v11.0.27-757/MacProxy-11.0.27-757-macos-arm64.zip" length="26990417" type="application/octet-stream" sparkle:edSignature="ZWLyvNAiC7WEY7PxDhHNQuzdeRrzv+mdxKxY3d8jCZFZh8GWZDRcyXYKG1hlkHcEcZ8c2CHnVLw/iOiA1ePVCA=="/>
+        </item>
+        <item>
             <title>11.0.26</title>
             <pubDate>Tue, 24 Nov 2026 03:23:00 +0300</pubDate>
             <sparkle:version>750</sparkle:version>
@@ -560,6 +575,6 @@ IMPORTANT: This file was signed by Sparkle. Any modifications to this file requi
     </channel>
 </rss>
 <!-- sparkle-signatures:
-edSignature: J2PGEgq9a2kmv+llzwVdwbLVKLJTdASi20gKdfHNZ4cuoTejL2WTls1IMYXfogI99NoJ5Xjn5JcCa3JE6UbODg==
-length: 62838
+edSignature: UMGVbYKd8cnaUD/rFq5wileEh2iy22KNZGE7LBu+WYbDbInmNYmd8/+TqDik33en32deCd3kT9kYkjuueUDABg==
+length: 64282
 -->
