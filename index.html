@@ -4,168 +4,498 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="color-scheme" content="light dark">
-<title>MacProxy</title>
+<title>MacProxy — программы через ваш VPN/прокси</title>
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14.4' fill='%232E2F30'/%3E%3Cpath d='M37.23 12.49A20.19 20.19 0 1 0 51.51 26.77' fill='none' stroke='%23EFF0F2' stroke-width='6.6' stroke-linecap='round'/%3E%3Ccircle cx='32' cy='32' r='8' fill='%23EFF0F2'/%3E%3C/svg%3E">
-<meta name="description" content="MacProxy 11.0.26 для macOS: скачать, установить, проверить контрольную сумму.">
+<meta name="description" content="MacProxy 11.0.26 для macOS: Claude Code, Codex, Telegram и нужные вам программы — через ваш VPN/прокси, остальной Мак — напрямую.">
 <link rel="alternate" type="application/rss+xml" title="Обновления MacProxy" href="appcast.xml">
+<script>
+/* язык: ?lang=en|ru → выбор, запомненный на этом устройстве → язык браузера; без JS страница остаётся русской */
+(function () {
+  var d = document.documentElement, key = "macproxy-lang", q = null, saved = null;
+  try { q = new URLSearchParams(location.search).get("lang"); } catch (e) {}
+  try { saved = localStorage.getItem(key); } catch (e) {}
+  var nav = (navigator.languages && navigator.languages[0]) || navigator.language || "ru";
+  var lang = (q === "en" || q === "ru") ? q : (saved === "en" || saved === "ru") ? saved : (/^(ru|uk|be|kk)\b/i.test(nav) ? "ru" : "en");
+  var titles = { ru: "MacProxy — программы через ваш VPN/прокси", en: "MacProxy — your apps through your own VPN/proxy" };
+  function apply(l) {
+    d.setAttribute("data-lang", l);
+    d.lang = l;
+    document.title = titles[l];
+    var im = document.querySelectorAll("img[data-alt-en]");   // подписи картинок — на языке страницы (без JS остаются русские)
+    for (var j = 0; j < im.length; j++) {
+      if (!im[j].hasAttribute("data-alt-ru")) im[j].setAttribute("data-alt-ru", im[j].getAttribute("alt") || "");
+      im[j].setAttribute("alt", l === "en" ? im[j].getAttribute("data-alt-en") : im[j].getAttribute("data-alt-ru"));
+    }
+    var b = document.querySelectorAll("[data-set-lang]");
+    for (var i = 0; i < b.length; i++) b[i].setAttribute("aria-pressed", String(b[i].getAttribute("data-set-lang") === l));
+  }
+  d.className += " js";
+  apply(lang);
+  document.addEventListener("DOMContentLoaded", function () {
+    apply(lang);
+    var b = document.querySelectorAll("[data-set-lang]");
+    for (var i = 0; i < b.length; i++) b[i].addEventListener("click", function (ev) {
+      ev.preventDefault();
+      lang = this.getAttribute("data-set-lang");
+      apply(lang);
+      try { localStorage.setItem(key, lang); } catch (e) {}
+      try { history.replaceState(null, "", "?lang=" + lang + location.hash); } catch (e) {}
+    });
+  });
+})();
+</script>
 <style>
   :root {
-    --canvas: oklch(0.99 0 0);
-    --raised: oklch(0.965 0 0);
+    --canvas: oklch(0.985 0 0);
+    --raised: oklch(0.960 0 0);
+    --sunken: oklch(0.935 0 0);
     --ink: oklch(0.22 0 0);
-    --ink-2: oklch(0.45 0 0);
+    --ink-2: oklch(0.46 0 0);
+    --ink-3: oklch(0.60 0 0);
     --hair: oklch(0.22 0 0 / 0.10);
+    --hair-2: oklch(0.22 0 0 / 0.18);
     --accent: oklch(0.24 0 0);
     --accent-hover: oklch(0.33 0 0);
     --accent-text: oklch(0.22 0 0);
-    --on-accent: oklch(0.99 0 0);
+    --on-accent: oklch(0.985 0 0);
+    --shot-shadow: 0 1px 2px oklch(0 0 0 / 0.06), 0 12px 32px oklch(0 0 0 / 0.10);
     --mono: ui-monospace, "SF Mono", Menlo, monospace;
   }
   @media (prefers-color-scheme: dark) {
     :root {
-      --canvas: oklch(0.20 0 0);
-      --raised: oklch(0.25 0 0);
-      --ink: oklch(0.985 0 0);
-      --ink-2: oklch(0.74 0 0);
-      --hair: oklch(0.985 0 0 / 0.12);
+      --canvas: oklch(0.19 0 0);
+      --raised: oklch(0.235 0 0);
+      --sunken: oklch(0.165 0 0);
+      --ink: oklch(0.975 0 0);
+      --ink-2: oklch(0.76 0 0);
+      --ink-3: oklch(0.62 0 0);
+      --hair: oklch(0.985 0 0 / 0.11);
+      --hair-2: oklch(0.985 0 0 / 0.20);
       --accent: oklch(0.93 0 0);
       --accent-hover: oklch(0.985 0 0);
-      --accent-text: oklch(0.975 0 0);
+      --accent-text: oklch(0.96 0 0);
       --on-accent: oklch(0.20 0 0);
+      --shot-shadow: 0 1px 2px oklch(0 0 0 / 0.4), 0 16px 40px oklch(0 0 0 / 0.45);
     }
   }
+  html[data-lang="en"] .ru { display: none !important; }
+  html:not([data-lang="en"]) .en { display: none !important; }
+  html:not(.js) .langs { display: none; }
   * { box-sizing: border-box; }
-  html { -webkit-text-size-adjust: 100%; }
+  html { -webkit-text-size-adjust: 100%; scroll-padding-top: 16px; }
   body {
     margin: 0;
     background: var(--canvas);
     color: var(--ink);
-    font: 16px/1.55 -apple-system, BlinkMacSystemFont, "SF Pro Text", "Helvetica Neue", sans-serif;
+    font: 16px/1.55 -apple-system, BlinkMacSystemFont, "SF Pro Text", "Helvetica Neue", "Segoe UI", sans-serif;
     -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
   }
-  main { max-width: 640px; margin: 0 auto; padding: 56px 16px 48px; }
-  header { display: flex; gap: 18px; align-items: center; margin-bottom: 28px; }
-  header svg { flex: none; width: 64px; height: 64px; }
-  h1 { margin: 0; font-size: 34px; line-height: 1.1; letter-spacing: -0.02em; font-weight: 700; }
-  .lede { margin: 4px 0 0; color: var(--ink-2); }
-  h2 { font-size: 19px; letter-spacing: -0.01em; margin: 40px 0 12px; }
-  .download {
-    background: var(--raised);
-    border: 1px solid var(--hair);
-    border-radius: 16px;
-    padding: 20px;
-  }
+  a { color: var(--accent-text); text-underline-offset: 2px; text-decoration-thickness: 1px; }
+  a:focus-visible, button:focus-visible, summary:focus-visible { outline: 3px solid var(--accent-text); outline-offset: 3px; border-radius: 6px; }
+  code { font: 0.88em var(--mono); background: var(--sunken); border: 1px solid var(--hair); border-radius: 5px; padding: 0.05em 0.35em; }
+  pre code { background: none; border: 0; padding: 0; font-size: 13px; }
+  img { display: block; max-width: 100%; height: auto; }
+  .wrap { max-width: 1040px; margin: 0 auto; padding: 0 16px; }
+  .narrow { max-width: 720px; }
+
+  /* верх */
+  .top { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 18px 0; }
+  .brand { display: flex; align-items: center; gap: 10px; font-weight: 650; font-size: 17px; color: var(--ink); text-decoration: none; }
+  .brand svg { width: 30px; height: 30px; flex: none; }
+  .langs { display: inline-flex; border: 1px solid var(--hair-2); border-radius: 9px; padding: 2px; gap: 2px; }
+  .langs a { font-size: 13px; font-weight: 600; text-decoration: none; color: var(--ink-2); padding: 4px 10px; border-radius: 7px; }
+  .langs a[aria-pressed="true"] { background: var(--accent); color: var(--on-accent); }
+
+  /* первый экран */
+  .hero { display: grid; grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr); gap: 48px; align-items: center; padding: 40px 0 64px; }
+  .hero h1 { margin: 0; font-size: 46px; line-height: 1.08; letter-spacing: -0.025em; font-weight: 720; text-wrap: balance; }
+  .lede { margin: 18px 0 0; font-size: 19px; line-height: 1.5; color: var(--ink-2); max-width: 32em; text-wrap: pretty; }
+  .cta { margin: 28px 0 0; display: flex; flex-wrap: wrap; gap: 12px 18px; align-items: center; }
   .button {
-    display: inline-block;
-    background: var(--accent);
-    color: var(--on-accent);
-    text-decoration: none;
-    font-weight: 600;
-    font-size: 17px;
-    padding: 12px 22px;
-    border-radius: 10px;
+    display: inline-flex; align-items: center; gap: 10px;
+    background: var(--accent); color: var(--on-accent); text-decoration: none;
+    font-weight: 620; font-size: 17px; padding: 13px 22px; border-radius: 11px;
   }
   .button:hover { background: var(--accent-hover); }
-  .button:focus-visible, a:focus-visible, summary:focus-visible { outline: 3px solid var(--accent-text); outline-offset: 3px; }
+  .button svg { width: 18px; height: 18px; flex: none; }
   .meta { margin: 12px 0 0; color: var(--ink-2); font-size: 14px; }
-  .need { margin: 0 0 16px; }
-  .facts { margin: 0 0 28px; display: grid; gap: 10px; }
-  .facts div { border-left: 2px solid var(--hair); padding-left: 12px; }
-  .facts dt { font-weight: 600; }
-  .facts dd { margin: 2px 0 0; color: var(--ink-2); }
-  code { font: 0.9em var(--mono); }
+  .tags { display: flex; flex-wrap: wrap; gap: 8px; margin: 18px 0 0; padding: 0; list-style: none; }
+  .tags li { font-size: 13px; color: var(--ink-2); border: 1px solid var(--hair-2); border-radius: 999px; padding: 3px 11px; }
+  .hero-shots { display: flex; gap: 20px; justify-content: center; align-items: flex-start; }
+  .hero-shots picture:last-child { margin-top: 56px; }
+  .panel-shot { width: 300px; max-width: 100%; border-radius: 12px; box-shadow: var(--shot-shadow); }
+  .shot-frame { border-radius: 12px; overflow: hidden; box-shadow: var(--shot-shadow); }
+  .window-shot { border-radius: 12px; box-shadow: var(--shot-shadow); margin: 0 auto; }
+  .gallery .panel-shot { margin: 0 auto; }
+
+  .note {
+    display: flex; gap: 14px; align-items: flex-start;
+    background: var(--raised); border: 1px solid var(--hair); border-radius: 14px; padding: 16px 18px; margin: 0 0 8px;
+  }
+  .note svg { width: 20px; height: 20px; flex: none; margin-top: 2px; color: var(--ink-2); }
+  .note p { margin: 0; }
+
+  section { padding: 56px 0 0; }
+  h2 { font-size: 30px; line-height: 1.15; letter-spacing: -0.02em; margin: 0 0 10px; font-weight: 700; text-wrap: balance; }
+  h3 { font-size: 17px; margin: 0 0 6px; letter-spacing: -0.005em; }
+  .intro { margin: 0 0 28px; color: var(--ink-2); font-size: 17px; max-width: 40em; }
+  p { margin: 10px 0 0; }
+
+  .grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; }
+  .card { background: var(--raised); border: 1px solid var(--hair); border-radius: 14px; padding: 18px 18px 20px; }
+  .card p { margin: 0; color: var(--ink-2); font-size: 15px; }
+  .card .ic { width: 34px; height: 34px; border-radius: 9px; background: var(--canvas); border: 1px solid var(--hair); display: grid; place-items: center; margin-bottom: 12px; }
+  .card .ic svg { width: 18px; height: 18px; color: var(--ink); }
+
+  .duo { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 28px; }
+  figure { margin: 0; }
+  figcaption { margin-top: 12px; color: var(--ink-2); font-size: 14px; text-align: center; }
+  .duo figure { display: flex; flex-direction: column; align-items: center; }
+
+  /* схема */
+  .flow { display: grid; grid-template-columns: minmax(0, 1.2fr) auto minmax(0, 1fr) auto minmax(0, 1fr) auto minmax(0, 0.7fr); align-items: center; gap: 10px; }
+  .node { background: var(--raised); border: 1px solid var(--hair-2); border-radius: 14px; padding: 14px 16px; }
+  .node b { display: block; font-size: 15px; }
+  .node span { display: block; color: var(--ink-2); font-size: 13px; margin-top: 2px; }
+  .node ul { margin: 6px 0 0; padding: 0 0 0 16px; font-size: 14px; color: var(--ink-2); }
+  .node.mp { display: flex; gap: 10px; align-items: center; }
+  .node.mp svg { width: 34px; height: 34px; flex: none; }
+  .arrow { color: var(--ink); font-size: 13px; text-align: center; white-space: nowrap; }
+  .arrow i { display: block; height: 3px; min-width: 28px; background: var(--ink); border-radius: 2px; position: relative; margin-top: 4px; }
+  .arrow i::after { content: ""; position: absolute; right: -2px; top: -4px; border: 5.5px solid transparent; border-left: 8px solid var(--ink); border-right: 0; }
+  .arrow.tun i { height: 5px; }
+  .direct { margin: 14px 0 0; display: flex; gap: 12px; align-items: center; color: var(--ink-2); font-size: 14px; }
+  .direct .node { flex: none; }
+  .direct i { flex: 1; border-top: 2px dashed var(--hair-2); min-width: 24px; }
+
+  .gallery { display: grid; gap: 28px; }
+  .gallery .pair { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 28px; justify-items: center; }
+
   ol.steps { list-style: none; counter-reset: step; margin: 0; padding: 0; }
-  ol.steps li { counter-increment: step; position: relative; padding: 0 0 16px 44px; }
+  ol.steps li { counter-increment: step; position: relative; padding: 0 0 18px 46px; }
   ol.steps li::before {
-    content: counter(step);
-    position: absolute; left: 0; top: -1px;
-    width: 28px; height: 28px; border-radius: 50%;
-    display: grid; place-items: center;
-    background: var(--raised); border: 1px solid var(--hair);
-    font-weight: 600; font-size: 14px;
+    content: counter(step); position: absolute; left: 0; top: -1px;
+    width: 30px; height: 30px; border-radius: 50%; display: grid; place-items: center;
+    background: var(--raised); border: 1px solid var(--hair-2); font-weight: 650; font-size: 14px;
   }
   ol.steps b { display: block; }
   ol.steps span { color: var(--ink-2); }
-  details { margin: 4px 0 0; }
-  summary { cursor: pointer; color: var(--accent-text); }
+  ul.plain { margin: 8px 0 0; padding-left: 20px; color: var(--ink-2); }
+  ul.plain li { margin: 4px 0; }
   pre, .hash {
-    margin: 10px 0 0;
-    background: var(--raised);
-    border: 1px solid var(--hair);
-    border-radius: 10px;
-    padding: 12px 14px;
-    font: 13px/1.5 var(--mono);
-    overflow-x: auto;
+    margin: 10px 0 0; background: var(--sunken); border: 1px solid var(--hair); border-radius: 10px;
+    padding: 12px 14px; font: 13px/1.5 var(--mono); overflow-x: auto;
   }
   .hash { word-break: break-all; user-select: all; -webkit-user-select: all; }
-  p { margin: 10px 0 0; }
-  a { color: var(--accent-text); }
-  footer { margin-top: 44px; padding-top: 16px; border-top: 1px solid var(--hair); color: var(--ink-2); font-size: 14px; }
-  @media (max-width: 480px) {
-    main { padding-top: 32px; }
-    h1 { font-size: 28px; }
-    .button { display: block; text-align: center; }
+  details { border-top: 1px solid var(--hair); padding: 12px 0; }
+  details:last-of-type { border-bottom: 1px solid var(--hair); }
+  summary { cursor: pointer; font-weight: 600; list-style-position: outside; }
+  details p { color: var(--ink-2); }
+  table { width: 100%; border-collapse: collapse; font-size: 15px; margin-top: 12px; }
+  th, td { text-align: left; vertical-align: top; padding: 10px 12px 10px 0; border-top: 1px solid var(--hair); }
+  th { font-weight: 600; width: 34%; }
+  td { color: var(--ink-2); }
+  .two { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 40px; }
+  footer { margin: 72px 0 0; padding: 20px 0 40px; border-top: 1px solid var(--hair); color: var(--ink-2); font-size: 14px; display: flex; flex-wrap: wrap; gap: 8px 18px; }
+
+  @media (max-width: 900px) {
+    .hero { grid-template-columns: 1fr; gap: 36px; padding-top: 20px; }
+    .grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .flow { grid-template-columns: 1fr; }
+    .arrow { justify-self: center; transform: rotate(90deg); padding: 6px 0; }
+    .two { grid-template-columns: 1fr; gap: 0; }
+  }
+  @media (max-width: 600px) {
+    .hero h1 { font-size: 32px; }
+    .lede { font-size: 17px; }
+    h2 { font-size: 25px; }
+    .grid, .duo, .gallery .pair { grid-template-columns: 1fr; }
+    .hero-shots picture:last-child { display: none; }
+    .button { display: flex; justify-content: center; }
+    .direct { flex-wrap: wrap; }
+    th { width: 40%; }
   }
 </style>
 </head>
 <body>
-<main>
-  <header>
-    <svg viewBox="0 0 64 64" aria-hidden="true" data-logo="ring">
-      <defs>
-        <linearGradient id="rl-tile" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#4B4C4D"/><stop offset="1" stop-color="#1E1E1F"/></linearGradient>
-        <linearGradient id="rl-mark" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#F2F4F6"/><stop offset="1" stop-color="#D4D6D7"/></linearGradient>
-      </defs>
-      <rect width="64" height="64" rx="14.4" fill="url(#rl-tile)"/>
-      <path d="M37.23 12.49A20.19 20.19 0 1 0 51.51 26.77" fill="none" stroke="url(#rl-mark)" stroke-width="6.21" stroke-linecap="round"/>
-      <circle cx="32" cy="32" r="7.77" fill="url(#rl-mark)"/>
-    </svg>
+<div class="wrap">
+  <div class="top">
+    <a class="brand" href="./" aria-label="MacProxy">
+      <svg viewBox="0 0 64 64" aria-hidden="true" data-logo="ring">
+        <defs>
+          <linearGradient id="rl-tile" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#4B4C4D"/><stop offset="1" stop-color="#1E1E1F"/></linearGradient>
+          <linearGradient id="rl-mark" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#F2F4F6"/><stop offset="1" stop-color="#D4D6D7"/></linearGradient>
+        </defs>
+        <rect width="64" height="64" rx="14.4" fill="url(#rl-tile)"/>
+        <path d="M37.23 12.49A20.19 20.19 0 1 0 51.51 26.77" fill="none" stroke="url(#rl-mark)" stroke-width="6.21" stroke-linecap="round"/>
+        <circle cx="32" cy="32" r="7.77" fill="url(#rl-mark)"/>
+      </svg>
+      MacProxy
+    </a>
+    <nav class="langs" aria-label="Язык / Language">
+      <a href="?lang=en" data-set-lang="en" lang="en" aria-pressed="false">EN</a>
+      <a href="?lang=ru" data-set-lang="ru" lang="ru" aria-pressed="true">RU</a>
+    </nav>
+  </div>
+
+  <header class="hero">
     <div>
-      <h1>MacProxy</h1>
-      <p class="lede">Выбранные вами программы ходят через ваш сервер, остальные — напрямую. Живёт в строке меню macOS.</p>
+      <h1><span class="ru">Claude Code, Codex, Telegram и&nbsp;нужные вам программы — через ваш VPN/прокси</span><span class="en" lang="en">Claude Code, Codex, Telegram and the apps you choose — through your own VPN/proxy</span></h1>
+      <p class="lede"><span class="ru">MacProxy живёт в&nbsp;строке меню macOS и&nbsp;пускает через туннель только то, что вы отметили: приложения, браузер в&nbsp;отдельном профиле, команды в&nbsp;Терминале. Остальной Мак ходит напрямую, сетевые настройки не&nbsp;меняются.</span><span class="en" lang="en">MacProxy lives in the macOS menu bar and sends through the tunnel only what you pick: apps, a browser in its own profile, commands in Terminal. The rest of your Mac goes direct, and its network settings stay as they are.</span></p>
+      <div class="cta">
+        <a class="button" href="https://github.com/agwor/macproxy/releases/download/v11.0.26-750/MacProxy-11.0.26-750-macos-arm64.dmg">
+          <svg viewBox="0 0 20 20" aria-hidden="true"><path d="M10 3v10m0 0-4-4m4 4 4-4M4 16h12" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <span class="ru">Скачать MacProxy 11.0.26</span><span class="en" lang="en">Download MacProxy 11.0.26</span>
+        </a>
+        <a href="https://github.com/agwor/macproxy/releases"><span class="ru">Все выпуски</span><span class="en" lang="en">All releases</span></a>
+      </div>
+      <p class="meta"><span class="ru">DMG · 27,5 МБ · macOS 14 или новее · только Mac на Apple Silicon (M1 и новее), для Intel сборки нет · сборка 750, 24 ноября 2026</span><span class="en" lang="en">DMG · 27.5 MB · macOS 14 or later · Apple Silicon only (M1 or later), no Intel build · build 750, November 24, 2026</span></p>
+      <ul class="tags">
+        <li><span class="ru">VPN-клиент для отдельных программ</span><span class="en" lang="en">A VPN client for individual apps</span></li>
+        <li><span class="ru">Без системного прокси</span><span class="en" lang="en">No system proxy</span></li>
+        <li><span class="ru">Обновления с подписью</span><span class="en" lang="en">Signed updates</span></li>
+        <li class="en" lang="en">Interface in Russian for now</li>
+      </ul>
+    </div>
+    <div class="hero-shots">
+      <picture>
+        <source media="(prefers-color-scheme: dark)" srcset="img/home-dark.png">
+        <img class="panel-shot" src="img/home-light.png" width="300" height="535" alt="Панель MacProxy: «Подключено», Амстердам; Claude, Codex и iTerm2 идут через туннель" data-alt-en="MacProxy panel: Connected, Amsterdam; Claude, Codex and iTerm2 go through the tunnel">
+      </picture>
+      <picture>
+        <source media="(prefers-color-scheme: dark)" srcset="img/apps-dark.png">
+        <img class="panel-shot" src="img/apps-light.png" width="300" height="535" alt="Лист «Программы»: отмеченные ★ всегда идут через туннель" data-alt-en="The Apps sheet: starred apps always go through the tunnel">
+      </picture>
     </div>
   </header>
 
-  <p class="need"><b>Только Mac на Apple Silicon, macOS 14 или новее.</b> Для Mac с процессором Intel сборки нет.</p>
-  <p class="need"><b>Нужна подписка или прокси от вашего провайдера VPN. Серверов MacProxy не продаёт.</b> Подойдёт ссылка вида https://…, vless://… или socks5://…</p>
-  <dl class="facts">
-    <div><dt>Что меняет на Маке</dt><dd>Через туннель идут только программы, которые вы выбрали; браузеры — в отдельном профиле MacProxy. Файлы Мака (~/.zshrc или файл входа bash, ~/.claude/settings.json) — только если вы сами отметите Claude Code, Codex CLI или Терминал.</dd></div>
-    <div><dt>Чего не меняет</dt><dd>Системный прокси не включает и весь Мак через туннель не пускает: остальные программы работают напрямую. <a href="#uninstall">Как удалить</a></dd></div>
-  </dl>
+  <div class="note narrow">
+    <svg viewBox="0 0 20 20" aria-hidden="true"><circle cx="10" cy="10" r="8" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M10 9v5M10 6.2v.1" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+    <p><span class="ru"><b>Нужна своя подписка или прокси от провайдера VPN.</b> MacProxy — VPN-клиент, серверов он не&nbsp;продаёт. Подойдёт ссылка вида <code>https://…</code>, <code>vless://…</code> или <code>socks5://…</code>.</span><span class="en" lang="en"><b>You need your own subscription or proxy from a VPN provider.</b> MacProxy is a VPN client and does not sell servers. A link like <code>https://…</code>, <code>vless://…</code> or <code>socks5://…</code> will do.</span></p>
+  </div>
 
-  <section class="download" aria-label="Скачать">
-    <a class="button" href="https://github.com/agwor/macproxy/releases/download/v11.0.26-750/MacProxy-11.0.26-750-macos-arm64.dmg">Скачать MacProxy 11.0.26</a>
-    <p class="meta">DMG · 27,5 МБ · macOS 14 или новее · только Mac на Apple Silicon (M1 и новее), для Intel сборки нет · сборка 750, 24 ноября 2026</p>
+  <section id="features">
+    <h2><span class="ru">Возможности</span><span class="en" lang="en">Why MacProxy</span></h2>
+    <p class="intro"><span class="ru">Через туннель — только выбранное. Всё остальное работает так, будто MacProxy нет.</span><span class="en" lang="en">Only what you choose goes through the tunnel. Everything else works as if MacProxy weren't there.</span></p>
+    <div class="grid">
+      <div class="card">
+        <div class="ic"><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M10 2.8l2.2 4.5 4.9.7-3.6 3.5.9 4.9L10 14.1l-4.4 2.3.9-4.9L2.9 8l4.9-.7z" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/></svg></div>
+        <h3><span class="ru">Только выбранные программы</span><span class="en" lang="en">Only the apps you choose</span></h3>
+        <p><span class="ru">Claude, ChatGPT, Codex, Cursor и&nbsp;другие программы на&nbsp;Electron и&nbsp;Chromium MacProxy открывает с&nbsp;прокси только для них. Отмеченные ★, открытые из&nbsp;Dock или Spotlight, он перезапустит через туннель.</span><span class="en" lang="en">Claude, ChatGPT, Codex, Cursor and other Electron and Chromium apps are opened with a proxy for that app only. Starred ★ apps opened from the Dock or Spotlight are restarted through the tunnel.</span></p>
+      </div>
+      <div class="card">
+        <div class="ic"><svg viewBox="0 0 20 20" aria-hidden="true"><rect x="2.5" y="3.5" width="15" height="13" rx="2.5" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="M6 8l2.5 2L6 12M10.5 12.5H14" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <h3><span class="ru">Терминал и&nbsp;Claude Code</span><span class="en" lang="en">Terminal and Claude Code</span></h3>
+        <p><span class="ru">Команды <code>claude</code> и&nbsp;<code>codex</code> идут через туннель сами, <code>proxy_env</code> включает его для текущей вкладки. Файлы оболочки меняются, только если вы сами это отметите.</span><span class="en" lang="en">The <code>claude</code> and <code>codex</code> commands go through the tunnel on their own; <code>proxy_env</code> turns it on for the current tab. Shell files change only if you tick it yourself.</span></p>
+      </div>
+      <div class="card">
+        <div class="ic"><svg viewBox="0 0 20 20" aria-hidden="true"><circle cx="10" cy="10" r="7.5" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="M2.8 10h14.4M10 2.5c-2.6 2.2-2.6 12.8 0 15M10 2.5c2.6 2.2 2.6 12.8 0 15" fill="none" stroke="currentColor" stroke-width="1.3"/></svg></div>
+        <h3><span class="ru">Браузеры в&nbsp;своём профиле</span><span class="en" lang="en">Browsers in their own profile</span></h3>
+        <p><span class="ru">Chrome, Arc, Brave, Edge, Firefox и&nbsp;другие открываются в&nbsp;профиле MacProxy: весь браузер или только сайты из&nbsp;списка.</span><span class="en" lang="en">Chrome, Arc, Brave, Edge, Firefox and others open in a MacProxy profile: the whole browser or only the sites on your list.</span></p>
+      </div>
+      <div class="card">
+        <div class="ic"><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M3 9.2 16.5 3.5 13.8 16.5 9.6 12.6 7.6 15.2 7.4 11.3 13.5 6.2 6.4 10.4z" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round"/></svg></div>
+        <h3><span class="ru">Telegram — прокси подставит MacProxy</span><span class="en" lang="en">Telegram — MacProxy fills in the proxy</span></h3>
+        <p><span class="ru">Кнопка открывает настройку прокси в&nbsp;Telegram, подтверждаете там же. Остальным программам со&nbsp;своими настройками прокси MacProxy подсказывает адрес и&nbsp;где его вписать.</span><span class="en" lang="en">The button opens the proxy settings in Telegram; you confirm there. For other apps with their own proxy settings, MacProxy shows the address and where to put it.</span></p>
+      </div>
+      <div class="card">
+        <div class="ic"><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M10 2.5 16 5v4.6c0 3.7-2.5 6.6-6 7.9-3.5-1.3-6-4.2-6-7.9V5z" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/></svg></div>
+        <h3><span class="ru">Сеть Мака не&nbsp;трогает</span><span class="en" lang="en">Leaves your network alone</span></h3>
+        <p><span class="ru">Ни системного прокси, ни правки маршрутов и&nbsp;DNS, ни пароля администратора. Туннель выключен&nbsp;— программы, запущенные через MacProxy, по&nbsp;умолчанию остаются без сети, а&nbsp;не&nbsp;идут напрямую.</span><span class="en" lang="en">No system proxy, no changes to routes or DNS, no admin password. With the tunnel off, apps started through MacProxy stay offline by default instead of going direct.</span></p>
+      </div>
+      <div class="card">
+        <div class="ic"><svg viewBox="0 0 20 20" aria-hidden="true"><rect x="3" y="3" width="14" height="5" rx="1.6" fill="none" stroke="currentColor" stroke-width="1.5"/><rect x="3" y="12" width="14" height="5" rx="1.6" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="M6 5.5h.01M6 14.5h.01" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></div>
+        <h3><span class="ru">Подписки и&nbsp;серверы</span><span class="en" lang="en">Subscriptions and servers</span></h3>
+        <p><span class="ru">Подписки, <code>vless://</code>, <code>vmess://</code>, <code>trojan://</code>, <code>ss://</code>, свои SOCKS5 и&nbsp;HTTP(S), QR-коды. «Самый быстрый» выберет сервер сам, проверка покажет, где сбой.</span><span class="en" lang="en">Subscriptions, <code>vless://</code>, <code>vmess://</code>, <code>trojan://</code>, <code>ss://</code>, your own SOCKS5 and HTTP(S), QR codes. “Fastest” picks a server for you; the check shows where things fail.</span></p>
+      </div>
+    </div>
   </section>
 
-  <h2>Установка</h2>
-  <ol class="steps">
-    <li><b>Перетащите MacProxy в «Программы».</b> <span>Откройте скачанный образ, перетащите значок на папку «Программы» и извлеките образ.</span></li>
-    <li><b>Откройте MacProxy и нажмите «Готово».</b> <span>Сборка пока не нотаризована Apple, поэтому macOS скажет, что не может проверить приложение.</span></li>
-    <li><b>Разрешите запуск.</b> <span>Системные настройки → Конфиденциальность и безопасность → внизу «Все равно открыть» рядом с MacProxy, подтвердите паролем или Touch ID.</span></li>
-  </ol>
-  <details>
-    <summary>Запасной путь через Терминал</summary>
-    <p>Когда MacProxy уже лежит в «Программах», вместо шагов 2–3:</p>
-    <pre><code>xattr -dr com.apple.quarantine /Applications/MacProxy.app</code></pre>
-  </details>
-  <p>Значка в Dock нет: MacProxy живёт в строке меню. Обновления приходят сами — новую версию MacProxy покажет на Главной, ставится она одной кнопкой.</p>
+  <section id="motion">
+    <div class="duo">
+      <figure>
+        <picture>
+          <source media="(prefers-color-scheme: dark)" srcset="img/connect-dark.gif">
+          <img class="shot-frame" src="img/connect-light.gif" width="300" height="535" loading="lazy" alt="Кнопка: «Выключено» → «Подключение…» → «Подключено»" data-alt-en="The button: Off → Connecting… → Connected">
+        </picture>
+        <figcaption><span class="ru">Туннель включается одной кнопкой</span><span class="en" lang="en">One button turns the tunnel on</span></figcaption>
+      </figure>
+      <figure>
+        <picture>
+          <source media="(prefers-color-scheme: dark)" srcset="img/restart-dark.gif">
+          <img class="shot-frame" src="img/restart-light.gif" width="300" height="535" loading="lazy" alt="Claude открыт напрямую; «Перезапустить» возвращает его в туннель" data-alt-en="Claude was opened directly; Restart brings it back through the tunnel">
+        </picture>
+        <figcaption><span class="ru">Программа открыта напрямую — «Перезапустить» вернёт её в&nbsp;туннель</span><span class="en" lang="en">An app opened directly comes back through the tunnel with “Restart”</span></figcaption>
+      </figure>
+    </div>
+  </section>
 
-  <h2 id="uninstall">Как удалить</h2>
-  <ol class="steps">
-    <li><b>Настройки → Общие → «Удалить MacProxy…».</b> <span>Кнопка выключит туннель, уберёт строку MacProxy из ~/.zshrc (у bash — из ~/.bash_profile, ~/.bash_login или ~/.profile) и свои ключи прокси из ~/.claude/settings.json (остальное в файлах не меняется), значки «… (proxy)», автозапуск и перезапуск после сбоя и перенесёт приложение в Корзину. Подписки и настройки стираются, только если отметить флажок.</span></li>
-    <li><b>Если приложение уже удалено.</b> <span>В ~/.zshrc, ~/.bash_profile, ~/.bash_login, ~/.profile и ~/.bashrc (какие есть) удалите строки от <code># &gt;&gt;&gt; macproxy &gt;&gt;&gt;</code> до <code># &lt;&lt;&lt; macproxy &lt;&lt;&lt;</code>; в ~/.claude/settings.json — HTTPS_PROXY и HTTP_PROXY с адресом 127.0.0.1, копию ~/.claude/settings.json.bak-macproxy (ваш файл до MacProxy) — если она не нужна; удалите папку ~/.config/macproxy и значки «… (proxy).app» в ~/Applications (и в Dock, если перетаскивали их туда); уберите MacProxy в Системные настройки → Основные → Объекты входа и расширения.</span></li>
-    <li><b>Данные.</b> <span>~/Library/Application Support/MacProxy, ~/Library/Logs/MacProxy и ~/Library/Caches/MacProxy можно удалить; настройки приложения — командой <code>defaults delete io.github.agwor.macproxy</code>.</span></li>
-  </ol>
+  <section id="how">
+    <h2><span class="ru">Как это работает</span><span class="en" lang="en">How it works</span></h2>
+    <p class="intro"><span class="ru">MacProxy запускает ядро Xray и&nbsp;локальный прокси, который слушает только <code>127.0.0.1</code>. Выбранные программы попадают в&nbsp;него так, как удобно каждой: флагами запуска, переменными окружения в&nbsp;Терминале, отдельным профилем браузера или своей настройкой прокси.</span><span class="en" lang="en">MacProxy runs the Xray core and a local proxy that listens only on <code>127.0.0.1</code>. The apps you pick reach it in the way that suits each: launch flags, environment variables in Terminal, a separate browser profile or the app's own proxy setting.</span></p>
+    <div class="flow" role="img" aria-label="Выбранные программы → MacProxy → туннель → ваш VPN/прокси → интернет">
+      <div class="node">
+        <b><span class="ru">Выбранные программы</span><span class="en" lang="en">Apps you choose</span></b>
+        <ul>
+          <li>Claude, Codex, ChatGPT, Cursor</li>
+          <li><span class="ru"><code>claude</code> и&nbsp;<code>codex</code> в&nbsp;Терминале</span><span class="en" lang="en"><code>claude</code> and <code>codex</code> in Terminal</span></li>
+          <li>Telegram</li>
+          <li><span class="ru">Chrome, Firefox — свой профиль</span><span class="en" lang="en">Chrome, Firefox — own profile</span></li>
+        </ul>
+      </div>
+      <div class="arrow" aria-hidden="true"><i></i></div>
+      <div class="node mp">
+        <svg viewBox="0 0 64 64" aria-hidden="true"><rect width="64" height="64" rx="14.4" fill="url(#rl-tile)"/><path d="M37.23 12.49A20.19 20.19 0 1 0 51.51 26.77" fill="none" stroke="#EFF0F2" stroke-width="6.21" stroke-linecap="round"/><circle cx="32" cy="32" r="7.77" fill="#EFF0F2"/></svg>
+        <div><b>MacProxy</b><span><span class="ru">127.0.0.1 · ядро Xray</span><span class="en" lang="en">127.0.0.1 · Xray core</span></span></div>
+      </div>
+      <div class="arrow tun" aria-hidden="true"><span class="ru">туннель</span><span class="en" lang="en">tunnel</span><i></i></div>
+      <div class="node"><b><span class="ru">Ваш VPN/прокси</span><span class="en" lang="en">Your VPN/proxy</span></b><span><span class="ru">сервер или подписка</span><span class="en" lang="en">server or subscription</span></span></div>
+      <div class="arrow" aria-hidden="true"><i></i></div>
+      <div class="node"><b><span class="ru">Интернет</span><span class="en" lang="en">Internet</span></b></div>
+    </div>
+    <div class="direct">
+      <div class="node"><b><span class="ru">Всё остальное</span><span class="en" lang="en">Everything else</span></b><span><span class="ru">остальные программы, Safari и&nbsp;программы Apple</span><span class="en" lang="en">other apps, Safari and Apple apps</span></span></div>
+      <i aria-hidden="true"></i>
+      <span><span class="ru">напрямую, как без MacProxy</span><span class="en" lang="en">direct, as without MacProxy</span></span>
+    </div>
+  </section>
 
-  <h2>Проверка файла</h2>
-  <p>Сравните контрольную сумму SHA-256 скачанного образа с этой:</p>
-  <pre><code>shasum -a 256 ~/Downloads/MacProxy-11.0.26-750-macos-arm64.dmg</code></pre>
-  <p class="hash">88467847888ffca9dc3ab368ea926e3c761bb4f76a3e0a8051696911d734b6e7</p>
+  <section id="screens">
+    <h2><span class="ru">Экраны</span><span class="en" lang="en">Screens</span></h2>
+    <p class="intro"><span class="ru">Панель в&nbsp;строке меню и&nbsp;окно с&nbsp;серверами и&nbsp;настройками. На&nbsp;снимках — демо-данные.</span><span class="en" lang="en">The menu bar panel and a window with servers and settings. Screenshots use demo data; the interface is in Russian for now — an English version is not available yet.</span></p>
+    <div class="gallery">
+      <figure>
+        <picture>
+          <source media="(prefers-color-scheme: dark)" srcset="img/servers-dark.png">
+          <img class="window-shot" src="img/servers-light.png" width="710" height="568" loading="lazy" alt="Окно: «Серверы и подписки»" data-alt-en="Window: Servers and subscriptions">
+        </picture>
+        <figcaption><span class="ru">Серверы и&nbsp;подписки: страны, задержка, избранное</span><span class="en" lang="en">Servers and subscriptions: countries, latency, favorites</span></figcaption>
+      </figure>
+      <figure>
+        <picture>
+          <source media="(prefers-color-scheme: dark)" srcset="img/settings-dark.png">
+          <img class="window-shot" src="img/settings-light.png" width="710" height="568" loading="lazy" alt="Окно: «Настройки → Общие»" data-alt-en="Window: Settings → General with Autostart">
+        </picture>
+        <figcaption><span class="ru">Настройки → Общие: автозапуск и&nbsp;уведомления</span><span class="en" lang="en">Settings → General: autostart and notifications</span></figcaption>
+      </figure>
+      <div class="pair">
+        <figure>
+          <picture>
+            <source media="(prefers-color-scheme: dark)" srcset="img/place-dark.png">
+            <img class="panel-shot" src="img/place-light.png" width="300" height="535" loading="lazy" alt="Выбор страны: «Самый быстрый» и серверы всех подписок" data-alt-en="Choosing a country: Fastest and the servers of every subscription">
+          </picture>
+          <figcaption><span class="ru">Выбор страны</span><span class="en" lang="en">Choosing a country</span></figcaption>
+        </figure>
+        <figure>
+          <picture>
+            <source media="(prefers-color-scheme: dark)" srcset="img/update-dark.png">
+            <img class="panel-shot" src="img/update-light.png" width="300" height="535" loading="lazy" alt="Лист «Обновление MacProxy» с заметками к выпуску" data-alt-en="The MacProxy update sheet with release notes">
+          </picture>
+          <figcaption><span class="ru">Обновление одной кнопкой</span><span class="en" lang="en">Updates in one click</span></figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <div class="two">
+    <section id="install">
+      <h2><span class="ru">Установка</span><span class="en" lang="en">Install</span></h2>
+      <p class="intro"><span class="ru">Mac на&nbsp;Apple Silicon (M1 и&nbsp;новее), macOS 14 или новее. Для Mac с&nbsp;процессором Intel сборки нет.</span><span class="en" lang="en">A Mac with Apple Silicon (M1 or later), macOS 14 or later. There is no build for Intel Macs.</span></p>
+      <ol class="steps">
+        <li><b><span class="ru">Перетащите MacProxy в&nbsp;«Программы».</span><span class="en" lang="en">Drag MacProxy into Applications.</span></b> <span><span class="ru">Откройте образ, перетащите значок на&nbsp;папку «Программы» и&nbsp;извлеките образ.</span><span class="en" lang="en">Open the image, drag the icon onto the Applications folder and eject the image.</span></span></li>
+        <li><b><span class="ru">Откройте MacProxy и&nbsp;нажмите «Готово».</span><span class="en" lang="en">Open MacProxy and click Done.</span></b> <span><span class="ru">Сборка подписана без Developer ID и&nbsp;пока не&nbsp;нотаризована Apple, поэтому macOS скажет, что не&nbsp;может проверить приложение.</span><span class="en" lang="en">The build is signed without a Developer ID and is not notarized by Apple yet, so macOS will say it cannot verify the app.</span></span></li>
+        <li><b><span class="ru">Разрешите запуск.</span><span class="en" lang="en">Allow it to open.</span></b> <span><span class="ru">Системные настройки → Конфиденциальность и&nbsp;безопасность → внизу «Все равно открыть» рядом с&nbsp;MacProxy, подтвердите паролем или Touch ID.</span><span class="en" lang="en">System Settings → Privacy &amp; Security → at the bottom, Open Anyway next to MacProxy; confirm with your password or Touch ID.</span></span></li>
+      </ol>
+      <p><span class="ru">Запасной путь вместо шагов 2–3, когда MacProxy уже в&nbsp;«Программах»:</span><span class="en" lang="en">A fallback instead of steps 2–3, once MacProxy is in Applications:</span></p>
+      <pre><code>xattr -dr com.apple.quarantine /Applications/MacProxy.app</code></pre>
+      <p><span class="ru">Значка в&nbsp;Dock нет: MacProxy живёт в&nbsp;строке меню.</span><span class="en" lang="en">There is no Dock icon: MacProxy lives in the menu bar.</span></p>
+
+      <h3 style="margin-top:28px"><span class="ru">Проверка файла</span><span class="en" lang="en">Verify the download</span></h3>
+      <p><span class="ru">Сравните контрольную сумму SHA-256 скачанного образа с&nbsp;этой:</span><span class="en" lang="en">Compare the SHA-256 checksum of the downloaded image with this one:</span></p>
+      <pre><code>shasum -a 256 ~/Downloads/MacProxy-11.0.26-750-macos-arm64.dmg</code></pre>
+      <p class="hash">88467847888ffca9dc3ab368ea926e3c761bb4f76a3e0a8051696911d734b6e7</p>
+    </section>
+
+    <section id="updates">
+      <h2><span class="ru">Обновления</span><span class="en" lang="en">Updates</span></h2>
+      <p><span class="ru">MacProxy сам проверяет обновления и&nbsp;показывает новую версию на&nbsp;Главной. Лист обновления показывает заметки к&nbsp;выпуску и&nbsp;ставит её одной кнопкой.</span><span class="en" lang="en">MacProxy checks for updates itself and shows a new version on its main screen. The update sheet shows the release notes and installs it with one button.</span></p>
+      <p><span class="ru">Обновления идут через Sparkle: лента и&nbsp;каждый архив подписаны (EdDSA), и&nbsp;MacProxy ставит только то, что подписано ключом проекта. Ядро Xray обновляется отдельно: Настройки → Обновления.</span><span class="en" lang="en">Updates come through Sparkle: the feed and every archive are signed (EdDSA), and MacProxy installs only what is signed with the project's key. The Xray core is updated separately in Settings → Updates.</span></p>
+
+      <h2 id="uninstall" style="margin-top:40px"><span class="ru">Как удалить</span><span class="en" lang="en">Uninstall</span></h2>
+      <ol class="steps">
+        <li><b><span class="ru">Настройки → Общие → «Удалить MacProxy…».</span><span class="en" lang="en">Settings → General → “Удалить MacProxy…” (Uninstall).</span></b> <span><span class="ru">Кнопка выключит туннель, уберёт свои строки из&nbsp;<code>~/.zshrc</code> (у&nbsp;bash — из&nbsp;файла входа) и&nbsp;свои ключи прокси из&nbsp;<code>~/.claude/settings.json</code>, значки «…&nbsp;(proxy)», автозапуск и&nbsp;перезапуск после сбоя, а&nbsp;затем перенесёт приложение в&nbsp;Корзину. Подписки и&nbsp;настройки стираются, только если отметить флажок.</span><span class="en" lang="en">It turns off the tunnel, removes its lines from <code>~/.zshrc</code> (for bash — from the login file) and its proxy keys from <code>~/.claude/settings.json</code>, the “… (proxy)” launchers, autostart and relaunch after a crash, then moves the app to the Trash. Subscriptions and settings are erased only if you tick the checkbox.</span></span></li>
+        <li><b><span class="ru">Если приложение уже в&nbsp;Корзине.</span><span class="en" lang="en">If the app is already in the Trash.</span></b> <span><span class="ru">В&nbsp;<code>~/.zshrc</code>, <code>~/.bash_profile</code>, <code>~/.bash_login</code>, <code>~/.profile</code> и&nbsp;<code>~/.bashrc</code> удалите строки от&nbsp;<code># &gt;&gt;&gt; macproxy &gt;&gt;&gt;</code> до&nbsp;<code># &lt;&lt;&lt; macproxy &lt;&lt;&lt;</code>; в&nbsp;<code>~/.claude/settings.json</code> — <code>HTTPS_PROXY</code>, <code>HTTP_PROXY</code> и&nbsp;<code>NO_PROXY</code> в&nbsp;разделе <code>env</code>; удалите <code>~/.config/macproxy</code>, значки «…&nbsp;(proxy).app» в&nbsp;<code>~/Applications</code> и&nbsp;MacProxy в&nbsp;Системные настройки → Основные → Объекты входа и&nbsp;расширения.</span><span class="en" lang="en">In <code>~/.zshrc</code>, <code>~/.bash_profile</code>, <code>~/.bash_login</code>, <code>~/.profile</code> and <code>~/.bashrc</code> delete the lines from <code># &gt;&gt;&gt; macproxy &gt;&gt;&gt;</code> to <code># &lt;&lt;&lt; macproxy &lt;&lt;&lt;</code>; in <code>~/.claude/settings.json</code> — <code>HTTPS_PROXY</code>, <code>HTTP_PROXY</code> and <code>NO_PROXY</code> under <code>env</code>; delete <code>~/.config/macproxy</code>, the “… (proxy).app” launchers in <code>~/Applications</code>, and MacProxy in System Settings → General → Login Items &amp; Extensions.</span></span></li>
+        <li><b><span class="ru">Данные.</span><span class="en" lang="en">Data.</span></b> <span><span class="ru"><code>~/Library/Application Support/MacProxy</code>, <code>~/Library/Logs/MacProxy</code> и&nbsp;<code>~/Library/Caches/MacProxy</code> можно удалить; настройки — <code>defaults delete io.github.agwor.macproxy</code>.</span><span class="en" lang="en"><code>~/Library/Application Support/MacProxy</code>, <code>~/Library/Logs/MacProxy</code> and <code>~/Library/Caches/MacProxy</code> can be deleted; preferences — <code>defaults delete io.github.agwor.macproxy</code>.</span></span></li>
+      </ol>
+    </section>
+  </div>
+
+  <section id="privacy" class="narrow">
+    <h2><span class="ru">Приватность</span><span class="en" lang="en">Privacy</span></h2>
+    <p><span class="ru"><b>На Маке.</b> Подписки, серверы и&nbsp;настройки лежат в&nbsp;<code>~/Library/Application Support/MacProxy</code> в&nbsp;файлах, доступных только вашей учётной записи. Журналы — в&nbsp;<code>~/Library/Logs/MacProxy</code>: 14&nbsp;дней, не&nbsp;больше 20&nbsp;МиБ, без адресов серверов, ссылок подписок и&nbsp;паролей.</span><span class="en" lang="en"><b>On your Mac.</b> Subscriptions, servers and settings are kept in <code>~/Library/Application Support/MacProxy</code> in files readable only by your user account. Logs are in <code>~/Library/Logs/MacProxy</code>: 14 days, at most 20 MiB, without server addresses, subscription links or passwords.</span></p>
+    <p><span class="ru"><b>Куда MacProxy обращается сам</b> — больше никуда, ни аналитики, ни телеметрии:</span><span class="en" lang="en"><b>Where MacProxy connects on its own</b> — nowhere else; no analytics, no telemetry:</span></p>
+    <table>
+      <tr><th><span class="ru">Обновления MacProxy</span><span class="en" lang="en">MacProxy updates</span></th><td><span class="ru">лента обновлений на&nbsp;GitHub Pages</span><span class="en" lang="en">the update feed on GitHub Pages</span></td></tr>
+      <tr><th><span class="ru">Список версий ядра Xray</span><span class="en" lang="en">Xray core versions</span></th><td><span class="ru">GitHub; файл нового ядра — оттуда же</span><span class="en" lang="en">GitHub; a new core comes from there too</span></td></tr>
+      <tr><th><span class="ru">Подписки</span><span class="en" lang="en">Subscriptions</span></th><td><span class="ru">провайдеру: адрес подписки, название программы и&nbsp;отпечаток Мака (необратимый хэш) при обновлении списка серверов</span><span class="en" lang="en">your provider: the subscription address, the app name and a Mac fingerprint (a one-way hash) when the server list is refreshed</span></td></tr>
+      <tr><th><span class="ru">Проверка связи</span><span class="en" lang="en">Connection check</span></th><td><span class="ru">пустой ответ Google (<code>generate_204</code>) через туннель</span><span class="en" lang="en">an empty Google response (<code>generate_204</code>) through the tunnel</span></td></tr>
+      <tr><th><span class="ru">Страна выхода</span><span class="en" lang="en">Exit country</span></th><td><span class="ru">ipinfo.io через туннель, запасной — Cloudflare; можно выключить</span><span class="en" lang="en">ipinfo.io through the tunnel, Cloudflare as a fallback; can be turned off</span></td></tr>
+      <tr><th><span class="ru">Проверка сервисов</span><span class="en" lang="en">Services check</span></th><td><span class="ru">Claude, API Anthropic, ChatGPT и&nbsp;GitHub через туннель — только по&nbsp;кнопке</span><span class="en" lang="en">Claude, the Anthropic API, ChatGPT and GitHub through the tunnel — only when you press the button</span></td></tr>
+    </table>
+    <p><span class="ru">Отчёты об&nbsp;ошибках сами не&nbsp;уходят: отчёт собирается по&nbsp;вашей кнопке, показывается целиком и&nbsp;уходит туда, куда вы его отправите.</span><span class="en" lang="en">Error reports are never sent automatically: a report is built when you press the button, shown in full, and goes wherever you send it.</span></p>
+  </section>
+
+  <section id="faq" class="narrow">
+    <h2><span class="ru">Вопросы</span><span class="en" lang="en">FAQ</span></h2>
+    <details>
+      <summary><span class="ru">MacProxy — это VPN?</span><span class="en" lang="en">Is MacProxy a VPN?</span></summary>
+      <p><span class="ru">Это VPN-клиент для отдельных программ. Своих серверов у&nbsp;MacProxy нет: он подключается к&nbsp;серверу вашего провайдера VPN или к&nbsp;вашему прокси и&nbsp;пускает через него только выбранные программы.</span><span class="en" lang="en">It is a VPN client for individual apps. MacProxy has no servers of its own: it connects to your VPN provider's server or your proxy and sends only the apps you chose through it.</span></p>
+    </details>
+    <details>
+      <summary><span class="ru">Какие серверы подходят?</span><span class="en" lang="en">Which servers does it support?</span></summary>
+      <p><span class="ru">Подписки (<code>https://…</code>, список ссылок текстом или base64), ссылки <code>vless://</code>, <code>vmess://</code>, <code>trojan://</code> и&nbsp;<code>ss://</code>, свои прокси SOCKS5, HTTP и&nbsp;HTTPS. Hysteria, TUIC, WireGuard и&nbsp;подписки Clash или sing-box не&nbsp;поддерживаются.</span><span class="en" lang="en">Subscriptions (<code>https://…</code>, a list of links as text or base64), <code>vless://</code>, <code>vmess://</code>, <code>trojan://</code> and <code>ss://</code> links, and your own SOCKS5, HTTP and HTTPS proxies. Hysteria, TUIC, WireGuard and Clash or sing-box subscriptions are not supported.</span></p>
+    </details>
+    <details>
+      <summary><span class="ru">Меняет ли MacProxy настройки сети Мака?</span><span class="en" lang="en">Does it change my Mac's network settings?</span></summary>
+      <p><span class="ru">Нет. Системный прокси MacProxy не&nbsp;включает, маршруты и&nbsp;DNS не&nbsp;меняет. Файлы оболочки и&nbsp;<code>~/.claude/settings.json</code> меняются, только если вы отметите Claude Code, Codex CLI или Терминал, а&nbsp;удаление убирает эти правки.</span><span class="en" lang="en">No. MacProxy does not turn on a system proxy and does not change routes or DNS. Shell files and <code>~/.claude/settings.json</code> change only if you tick Claude Code, Codex CLI or Terminal, and the uninstaller removes those changes.</span></p>
+    </details>
+    <details>
+      <summary><span class="ru">Почему Safari не&nbsp;идёт через MacProxy?</span><span class="en" lang="en">Why can't Safari go through MacProxy?</span></summary>
+      <p><span class="ru">Safari и&nbsp;другие программы Apple идут напрямую: MacProxy не&nbsp;может узнать, какой программе Apple принадлежит соединение. Для сайтов через туннель откройте браузер в&nbsp;профиле MacProxy.</span><span class="en" lang="en">Safari and other Apple apps go direct: MacProxy cannot tell which Apple app a connection belongs to. For sites through the tunnel, use a browser in a MacProxy profile.</span></p>
+    </details>
+    <details>
+      <summary><span class="ru">Почему macOS предупреждает при первом запуске?</span><span class="en" lang="en">Why does macOS warn me on first launch?</span></summary>
+      <p><span class="ru">Сборка подписана ad-hoc, без Developer ID Apple, и&nbsp;пока не&nbsp;нотаризована. Разрешите запуск один раз в&nbsp;«Конфиденциальность и&nbsp;безопасность»; дальше обновления MacProxy проверяет по&nbsp;своей подписи.</span><span class="en" lang="en">The build is signed ad hoc, without an Apple Developer ID, and is not notarized yet. Allow it once in Privacy &amp; Security; after that, MacProxy checks updates by its own signature.</span></p>
+    </details>
+    <details>
+      <summary><span class="ru">Есть ли английский интерфейс или сборка для Intel?</span><span class="en" lang="en">Is there an English interface or an Intel build?</span></summary>
+      <p><span class="ru">Пока нет: интерфейс на&nbsp;русском, сборки — только для Apple Silicon.</span><span class="en" lang="en">Not yet: the interface is in Russian, and builds are for Apple Silicon only.</span></p>
+    </details>
+    <details>
+      <summary><span class="ru">Открыт ли исходный код?</span><span class="en" lang="en">Is the source code available?</span></summary>
+      <p><span class="ru">Нет. Здесь лежат готовые сборки, лента обновлений и&nbsp;эта страница.</span><span class="en" lang="en">No. This site holds the ready builds, the update feed and this page.</span></p>
+    </details>
+  </section>
+
+  <section id="licenses" class="narrow">
+    <h2><span class="ru">Компоненты и&nbsp;лицензии</span><span class="en" lang="en">Components and licenses</span></h2>
+    <p><span class="ru">Код MacProxy закрыт; в&nbsp;приложение входят:</span><span class="en" lang="en">MacProxy itself is closed-source; it bundles:</span></p>
+    <ul class="plain">
+      <li><a href="https://github.com/XTLS/Xray-core">Xray-core</a> — MPL 2.0<span class="ru">, отдельный файл <code>xray</code> внутри приложения</span><span class="en" lang="en">, a separate <code>xray</code> binary inside the app</span></li>
+      <li><a href="https://sparkle-project.org">Sparkle</a> — MIT<span class="ru">, обновления</span><span class="en" lang="en">, updates</span></li>
+      <li><a href="https://github.com/rive-app/rive-ios">Rive runtime</a> — MIT<span class="ru">, анимация главной кнопки</span><span class="en" lang="en">, the main button animation</span></li>
+      <li><a href="https://github.com/HatScripts/circle-flags">circle-flags</a> — MIT<span class="ru">, флаги стран</span><span class="en" lang="en">, country flags</span></li>
+    </ul>
+    <p><span class="ru">Глобус на&nbsp;кнопке, который виден на&nbsp;снимках, — производная от работы «The Golden Glow Button» (Rive Community, №&nbsp;18655), автор AmritAaryan, лицензия <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>.</span><span class="en" lang="en">The globe on the button, visible in the screenshots, is derived from “The Golden Glow Button” (Rive Community, #18655) by AmritAaryan, licensed under <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>.</span></p>
+    <p><span class="ru">Полные тексты лицензий — в&nbsp;<code>MacProxy.app/Contents/Resources/THIRD-PARTY-NOTICES.txt</code>.</span><span class="en" lang="en">Full license texts are in <code>MacProxy.app/Contents/Resources/THIRD-PARTY-NOTICES.txt</code>.</span></p>
+  </section>
 
   <footer>
-    <a href="https://github.com/agwor/macproxy/releases">Все выпуски</a> · у каждого — файл SHA256SUMS
+    <a href="https://github.com/agwor/macproxy/releases"><span class="ru">Все выпуски</span><span class="en" lang="en">All releases</span></a>
+    <span><span class="ru">у каждого — файл SHA256SUMS</span><span class="en" lang="en">each with a SHA256SUMS file</span></span>
+    <a href="appcast.xml"><span class="ru">Лента обновлений</span><span class="en" lang="en">Update feed</span></a>
   </footer>
-</main>
+</div>
 </body>
 </html>
