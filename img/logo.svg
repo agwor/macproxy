@@ -1,9 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="128" height="128" role="img" aria-label="MacProxy">
-<defs>
-<linearGradient id="t" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#4B4C4D"/><stop offset="1" stop-color="#1E1E1F"/></linearGradient>
-<linearGradient id="m" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#F2F4F6"/><stop offset="1" stop-color="#D4D6D7"/></linearGradient>
-</defs>
-<rect width="64" height="64" rx="14.4" fill="url(#t)"/>
-<path d="M37.23 12.49A20.19 20.19 0 1 0 51.51 26.77" fill="none" stroke="url(#m)" stroke-width="6.21" stroke-linecap="round"/>
-<circle cx="32" cy="32" r="7.77" fill="url(#m)"/>
-</svg>

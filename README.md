@@ -1,237 +1,237 @@
-<p align="right"><b>English</b> | <a href="README.ru.md">Русский</a></p>
+<p align="right"><b>Русский</b> | <a href="README.en.md">English</a></p>
 
 <p align="center">
-  <img src="img/logo.svg" width="96" height="96" alt="MacProxy logo">
+  <img src="img/logo.png" width="96" height="96" alt="Логотип MacProxy">
 </p>
 
 <h1 align="center">MacProxy</h1>
 
-<p align="center"><b>Claude Code, Codex, Telegram and the apps you choose — through your own VPN/proxy.</b><br>
-A macOS menu bar app: only the apps you pick go through the tunnel, the rest of your Mac stays direct.</p>
+<p align="center"><b>Claude Code, Codex, Telegram и нужные вам программы — через ваш VPN/прокси.</b><br>
+Приложение в строке меню macOS: через туннель идут только выбранные программы, остальной Мак — напрямую.</p>
 
 <p align="center">
-  <a href="https://github.com/agwor/macproxy/releases/download/v11.0.27-757/MacProxy-11.0.27-757-macos-arm64.dmg"><b>Download MacProxy 11.0.27</b></a> (DMG, 27.5 MB) ·
-  <a href="https://github.com/agwor/macproxy/releases">All releases</a> ·
-  <a href="https://agwor.github.io/macproxy/">Website</a>
+  <a href="https://github.com/agwor/macproxy/releases/download/v11.0.28-761/MacProxy-11.0.28-761-macos-arm64.dmg"><b>Скачать MacProxy 11.0.28</b></a> (DMG, 26,7 МБ) ·
+  <a href="https://github.com/agwor/macproxy/releases">Все выпуски</a> ·
+  <a href="https://agwor.github.io/macproxy/">Сайт</a>
   <br>
-  <sub>Apple Silicon only · macOS 14 or later · build 757, November 25, 2026 · the app's interface is in Russian for now</sub>
+  <sub>Только Apple Silicon · macOS 14 или новее · сборка 761, 25 ноября 2026</sub>
 </p>
 
 <p align="center">
   <picture>
     <source media="(prefers-color-scheme: dark)" srcset="img/home-dark.png">
-    <img src="img/home-light.png" width="300" alt="MacProxy panel: Connected, Amsterdam; Claude, Codex and iTerm2 go through the tunnel">
+    <img src="img/home-light.png" width="300" alt="Панель MacProxy: «Подключено», Амстердам; Claude, ChatGPT и Терминал идут через туннель">
   </picture>
   &nbsp;&nbsp;
   <picture>
     <source media="(prefers-color-scheme: dark)" srcset="img/apps-dark.png">
-    <img src="img/apps-light.png" width="300" alt="The Apps sheet: starred apps always go through the tunnel">
+    <img src="img/apps-light.png" width="300" alt="Лист «Программы»: отмеченные ★ всегда идут через туннель">
   </picture>
 </p>
 
 > [!NOTE]
-> MacProxy is a VPN client for individual apps, not a VPN service: it does not sell servers. You need your own subscription or
-> proxy from a VPN provider — a link like `https://…`, `vless://…` or `socks5://…`.
+> MacProxy — VPN-клиент для отдельных программ, а не VPN-сервис: серверов он не продаёт. Нужна своя подписка или прокси от провайдера
+> VPN — ссылка вида `https://…`, `vless://…` или `socks5://…`.
 
-## Why MacProxy
+## Возможности
 
-- **Only the apps you choose.** Claude, ChatGPT, Codex, Cursor and other Electron and Chromium apps are started with a proxy setting for
-  that app only. Starred (★) apps always go through the tunnel: open one from the Dock or Spotlight and MacProxy restarts it through the
-  tunnel.
-- **Terminal and Claude Code.** The `claude` and `codex` commands go through the tunnel on their own, `proxy_env` turns it on for the current
-  tab. Claude Code also gets the proxy in `~/.claude/settings.json`. Shell files change only if you tick Claude Code, Codex CLI or Terminal.
-- **Browsers in a separate profile.** Chrome, Arc, Brave, Edge, Firefox and other browsers open in a MacProxy profile: the whole browser or
-  only the sites on your list.
-- **Telegram:** MacProxy can fill in the proxy for you (the button opens the proxy settings in Telegram; you confirm there). For other apps with their own proxy settings it shows the address.
-- **Your Mac's network settings stay as they are.** No system proxy, no changes to routes or DNS, no admin password. Safari and Apple apps
-  go direct.
-- **Subscriptions and servers.** Subscription links, `vless://`, `vmess://`, `trojan://`, `ss://`, your own SOCKS5 and HTTP(S) proxies,
-  QR codes. “Fastest” picks a server for you; latency is shown for each.
-- **Checks.** A step-by-step connection check, the exit country and a services check (Claude, the Anthropic API, ChatGPT, GitHub).
-- **Nothing leaks when the tunnel is off.** By default apps started through MacProxy stay offline instead of going direct.
+- **Только выбранные программы.** Claude, ChatGPT, Codex, Cursor и другие программы на Electron и Chromium MacProxy открывает с настройкой
+  прокси только для этой программы. Отмеченные ★ идут через туннель всегда: открыли из Dock или Spotlight — MacProxy перезапустит через
+  туннель.
+- **Терминал и Claude Code.** Команды `claude` и `codex` идут через туннель сами, `proxy_env` включает его для текущей вкладки. Claude Code
+  получает прокси и в `~/.claude/settings.json`. Файлы оболочки меняются, только если вы отметите Claude Code, Codex CLI или Терминал.
+- **Браузеры в отдельном профиле.** Chrome, Arc, Brave, Edge, Firefox и другие браузеры открываются в профиле MacProxy: весь браузер или
+  только сайты из списка.
+- **Telegram:** MacProxy умеет подставить прокси сам (кнопка открывает настройку прокси в Telegram, подтверждаете там же). Остальным программам со своими настройками прокси подсказывает адрес.
+- **Сетевые настройки Мака не меняются.** Системный прокси, маршруты и DNS MacProxy не трогает, пароль администратора не просит. Safari
+  и программы Apple идут напрямую.
+- **Подписки и серверы.** Ссылки подписок, `vless://`, `vmess://`, `trojan://`, `ss://`, свои прокси SOCKS5 и HTTP(S), QR-коды.
+  «Самый быстрый» выберет сервер сам; у каждого видна задержка.
+- **Проверки.** Пошаговая проверка подключения, страна выхода и проверка сервисов (Claude, API Anthropic, ChatGPT, GitHub).
+- **Туннель выключен — ничего не утекает.** По умолчанию программы, запущенные через MacProxy, остаются без сети, а не идут напрямую.
 
 <p align="center">
   <picture>
     <source media="(prefers-color-scheme: dark)" srcset="img/connect-dark.gif">
-    <img src="img/connect-light.gif" width="300" alt="The button: Off → Connecting… → Connected">
+    <img src="img/connect-light.gif" width="300" alt="Кнопка: «Выключено» → «Подключение…» → «Подключено»">
   </picture>
   &nbsp;&nbsp;
   <picture>
     <source media="(prefers-color-scheme: dark)" srcset="img/restart-dark.gif">
-    <img src="img/restart-light.gif" width="300" alt="Claude was opened directly; Restart brings it back through the tunnel">
+    <img src="img/restart-light.gif" width="300" alt="Claude открыт напрямую; «Перезапустить» возвращает его в туннель">
   </picture>
   <br>
-  <sub>One button connects the tunnel · an app opened directly comes back through the tunnel with “Restart”</sub>
+  <sub>Туннель включается одной кнопкой · программа, открытая напрямую, возвращается в туннель кнопкой «Перезапустить»</sub>
 </p>
 
-## How it works
+## Как это работает
 
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="img/how-en-dark.svg">
-  <img src="img/how-en-light.svg" width="800" alt="Chosen apps go through MacProxy and a tunnel to your VPN/proxy; everything else goes direct">
+  <source media="(prefers-color-scheme: dark)" srcset="img/how-ru-dark.svg">
+  <img src="img/how-ru-light.svg" width="800" alt="Выбранные программы идут через MacProxy и туннель на ваш VPN/прокси, остальные — напрямую">
 </picture>
 
-MacProxy runs the Xray core and a local proxy that listens only on `127.0.0.1`. The apps you pick reach it in the way that suits each of
-them — launch flags, environment variables in Terminal, a separate browser profile or the app's own proxy setting — and their traffic goes
-through the tunnel to your server. Other apps don't know about the tunnel.
+MacProxy запускает ядро Xray и локальный прокси, который слушает только `127.0.0.1`. Выбранные программы попадают в него так, как удобно
+каждой: флагами запуска, переменными окружения в Терминале, отдельным профилем браузера или собственной настройкой прокси, — и идут через
+туннель на ваш сервер. Остальные программы о туннеле не знают.
 
-## More screens
+## Ещё экраны
 
 <p align="center">
   <picture>
     <source media="(prefers-color-scheme: dark)" srcset="img/servers-dark.png">
-    <img src="img/servers-light.png" width="710" alt="Window: Servers and subscriptions">
+    <img src="img/servers-light.png" width="710" alt="Окно: «Серверы и подписки»">
   </picture>
 </p>
 <p align="center">
   <picture>
     <source media="(prefers-color-scheme: dark)" srcset="img/settings-dark.png">
-    <img src="img/settings-light.png" width="710" alt="Window: Settings → General with Autostart">
+    <img src="img/settings-light.png" width="710" alt="Окно: «Настройки → Общие» с «Автозапуском»">
   </picture>
 </p>
 <p align="center">
   <picture>
     <source media="(prefers-color-scheme: dark)" srcset="img/place-dark.png">
-    <img src="img/place-light.png" width="300" alt="Choosing a country: Fastest and the servers of every subscription">
+    <img src="img/place-light.png" width="300" alt="Выбор страны: «Самый быстрый» и серверы всех подписок">
   </picture>
   &nbsp;&nbsp;
   <picture>
     <source media="(prefers-color-scheme: dark)" srcset="img/update-dark.png">
-    <img src="img/update-light.png" width="300" alt="The MacProxy update sheet with release notes">
+    <img src="img/update-light.png" width="300" alt="Лист «Обновление MacProxy» с заметками к выпуску">
   </picture>
 </p>
 
-<sub>Screenshots use demo data. The interface is in Russian; an English version is not available yet.</sub>
+<sub>На снимках — демо-данные.</sub>
 
-## Install
+## Установка
 
-**Requirements:** a Mac with Apple Silicon (M1 or later), macOS 14 or later. There is no build for Intel Macs.
+**Требования:** Mac на Apple Silicon (M1 и новее), macOS 14 или новее. Для Mac с процессором Intel сборки нет.
 
-1. Open the downloaded image and drag **MacProxy** into **Applications**, then eject the image.
-2. Open MacProxy from Applications. The build is not notarized by Apple yet, so macOS will say it cannot verify the app — click
-   **Done**.
-3. Open **System Settings → Privacy & Security** and, at the bottom, click **Open Anyway** next to MacProxy; confirm with your password or
-   Touch ID.
+1. Откройте скачанный образ и перетащите **MacProxy** в папку **«Программы»**. Затем извлеките образ.
+2. Откройте MacProxy из «Программ». Сборка пока не нотаризована Apple, поэтому macOS скажет, что не может проверить приложение, —
+   нажмите **«Готово»**.
+3. Откройте **Системные настройки → Конфиденциальность и безопасность** и внизу нажмите **«Все равно открыть»** рядом с MacProxy,
+   подтвердите паролем или Touch ID.
 
-A fallback instead of steps 2–3 — one command in Terminal once MacProxy is in Applications:
+Запасной путь вместо шагов 2–3 — одна команда в Терминале, когда MacProxy уже лежит в «Программах»:
 
 ```sh
 xattr -dr com.apple.quarantine /Applications/MacProxy.app
 ```
 
-There is no Dock icon: MacProxy lives in the menu bar.
+Значка в Dock нет: MacProxy живёт в строке меню.
 
-### Verify the download
+### Проверка файла
 
-Compare the checksum of the downloaded image with this one (it is also in the `SHA256SUMS` file of every release):
+Сравните контрольную сумму скачанного образа с этой (она же — в файле `SHA256SUMS` каждого выпуска):
 
 ```sh
-shasum -a 256 ~/Downloads/MacProxy-11.0.27-757-macos-arm64.dmg
+shasum -a 256 ~/Downloads/MacProxy-11.0.28-761-macos-arm64.dmg
 ```
 
 ```
-06f7597640072b195f98e467eec7e4c9aac51f2cb79a21c703a7db04a2584556  MacProxy-11.0.27-757-macos-arm64.dmg
+ec91c33a6ef150348b4ed917848fa6fd5d8d278f49d0625c986619eea103037b  MacProxy-11.0.28-761-macos-arm64.dmg
 ```
 
-## Updates
+## Обновления
 
-MacProxy checks for updates itself and shows a new version on its main screen; the update sheet shows the release notes and installs it
-with one button. Updates come through [Sparkle](https://sparkle-project.org): the update feed and every archive are signed (EdDSA), and
-MacProxy installs only what is signed with the project's key. The Xray core can be updated separately in Settings → Updates.
+MacProxy сам проверяет обновления и показывает новую версию на Главной; лист обновления показывает заметки к выпуску и ставит её одной
+кнопкой. Обновления идут через [Sparkle](https://sparkle-project.org): лента обновлений и каждый архив подписаны (EdDSA), и MacProxy ставит
+только то, что подписано ключом проекта. Ядро Xray обновляется отдельно: Настройки → Обновления.
 
-## Uninstall
+## Как удалить
 
-1. In MacProxy: **Settings → General → “Удалить MacProxy…”** (Uninstall). It turns off the tunnel, removes the MacProxy block from
-   `~/.zshrc` (for bash — from `~/.bash_profile`, `~/.bash_login` or `~/.profile`) and its proxy keys from `~/.claude/settings.json`
-   (nothing else in these files changes), the “… (proxy)” launchers in `~/Applications`, autostart and relaunch after a crash, and then
-   moves the app to the Trash. Subscriptions and settings are erased only if you tick the checkbox.
-2. If the app is already in the Trash:
-   - in `~/.zshrc`, `~/.bash_profile`, `~/.bash_login`, `~/.profile` and `~/.bashrc` (whichever exist) delete the lines from
-     `# >>> macproxy >>>` to `# <<< macproxy <<<`;
-   - in `~/.claude/settings.json` — `HTTPS_PROXY`, `HTTP_PROXY` and `NO_PROXY` under `env` (the proxy ones point to `127.0.0.1`); delete the copy
-     `~/.claude/settings.json.bak-macproxy` (your file before MacProxy) if you don't need it;
-   - delete the `~/.config/macproxy` folder and the “… (proxy).app” launchers in `~/Applications` (and from the Dock, if you put them there);
-   - remove MacProxy in **System Settings → General → Login Items & Extensions**.
-3. Data lives in `~/Library/Application Support/MacProxy`, `~/Library/Logs/MacProxy` and `~/Library/Caches/MacProxy` — you can delete them.
-   App preferences: `defaults delete io.github.agwor.macproxy`.
+1. В MacProxy: **Настройки → Общие → «Удалить MacProxy…»**. Кнопка выключит туннель, уберёт строку MacProxy из `~/.zshrc` (у bash — из
+   `~/.bash_profile`, `~/.bash_login` или `~/.profile`) и свои ключи прокси из `~/.claude/settings.json` (остальное в этих файлах не
+   меняется), значки «… (proxy)» из `~/Applications`, автозапуск и перезапуск после сбоя, а затем перенесёт приложение в Корзину.
+   Подписки и настройки стираются, только если отметить флажок.
+2. Если приложение уже в Корзине:
+   - в `~/.zshrc`, `~/.bash_profile`, `~/.bash_login`, `~/.profile` и `~/.bashrc` (какие есть) удалите строки от `# >>> macproxy >>>`
+     до `# <<< macproxy <<<`;
+   - в `~/.claude/settings.json` — `HTTPS_PROXY`, `HTTP_PROXY` и `NO_PROXY` в разделе `env` (прокси — с адресом `127.0.0.1`); копию
+     `~/.claude/settings.json.bak-macproxy` (ваш файл до MacProxy) удалите, если она не нужна;
+   - удалите папку `~/.config/macproxy` и значки «… (proxy).app» в `~/Applications`; если вы перетаскивали их в Dock — уберите и оттуда;
+   - уберите MacProxy в **Системные настройки → Основные → Объекты входа и расширения**.
+3. Данные лежат в `~/Library/Application Support/MacProxy`, `~/Library/Logs/MacProxy` и `~/Library/Caches/MacProxy` — их можно удалить.
+   Настройки приложения — командой `defaults delete io.github.agwor.macproxy`.
 
-## Privacy
+## Приватность
 
-**On your Mac.** Subscriptions, servers and settings are kept in `~/Library/Application Support/MacProxy` in files readable only by your
-user account; logs are in `~/Library/Logs/MacProxy` (kept 14 days, at most 20 MiB, without server addresses, subscription links or
-passwords).
+**На Маке.** Подписки, серверы и настройки лежат в `~/Library/Application Support/MacProxy` в файлах, доступных только вашей учётной
+записи; журналы — в `~/Library/Logs/MacProxy` (хранятся 14 дней, всего не больше 20 МиБ, без адресов серверов, ссылок подписок и
+паролей).
 
-**Where MacProxy connects on its own** — nowhere else; no analytics, no telemetry:
+**Куда MacProxy обращается сам** — больше никуда, ни аналитики, ни телеметрии:
 
-| What | Where |
+| Что | Куда |
 | --- | --- |
-| MacProxy updates | the update feed on GitHub Pages |
-| Xray core versions | GitHub; a new core comes from there too |
-| Subscriptions | your provider: the subscription address, the app name and a Mac fingerprint (a one-way hash) when the server list is refreshed |
-| Connection check | an empty Google response (`generate_204`), through the tunnel |
-| Exit country | ipinfo.io through the tunnel, Cloudflare as a fallback; can be turned off |
-| Services check | Claude, the Anthropic API, ChatGPT and GitHub through the tunnel — only when you press the button |
+| Обновления MacProxy | лента обновлений на GitHub Pages |
+| Список версий ядра Xray | GitHub; файл нового ядра — оттуда же |
+| Подписки | провайдеру: адрес подписки, название программы и отпечаток Мака (необратимый хэш) при обновлении списка серверов |
+| Проверка связи | пустой ответ Google (`generate_204`) через туннель |
+| Страна выхода | ipinfo.io через туннель, запасной — Cloudflare; можно выключить |
+| Проверка сервисов | Claude, API Anthropic, ChatGPT и GitHub через туннель — только по кнопке |
 
-Error reports are never sent automatically: a report is built when you press the button, shown in full, and goes wherever you send it.
+Отчёты об ошибках сами не уходят: отчёт собирается по вашей кнопке, показывается целиком и уходит туда, куда вы его отправите.
 
-## FAQ
+## Вопросы
 
 <details>
-<summary><b>Is MacProxy a VPN?</b></summary>
+<summary><b>MacProxy — это VPN?</b></summary>
 
-It is a VPN client for individual apps. MacProxy has no servers of its own: it connects to your VPN provider's server or to your proxy and
-sends only the apps you chose through it.
+Это VPN-клиент для отдельных программ. Своих серверов у MacProxy нет: он подключается к серверу вашего провайдера VPN или к вашему прокси
+и пускает через него только выбранные программы.
 </details>
 
 <details>
-<summary><b>Which servers does it support?</b></summary>
+<summary><b>Какие серверы подходят?</b></summary>
 
-Subscriptions (`https://…`, a list of links as text or base64), `vless://`, `vmess://`, `trojan://` and `ss://` links, and your own SOCKS5,
-HTTP and HTTPS proxies. Hysteria, TUIC, WireGuard and Clash or sing-box subscriptions are not supported.
+Подписки (`https://…`, список ссылок текстом или base64), ссылки `vless://`, `vmess://`, `trojan://` и `ss://`, свои прокси SOCKS5, HTTP
+и HTTPS. Hysteria, TUIC, WireGuard и подписки Clash или sing-box не поддерживаются.
 </details>
 
 <details>
-<summary><b>Does it change my Mac's network settings?</b></summary>
+<summary><b>Меняет ли MacProxy настройки сети Мака?</b></summary>
 
-No. MacProxy does not turn on a system proxy and does not change routes or DNS. Shell files and `~/.claude/settings.json` change only if
-you tick Claude Code, Codex CLI or Terminal, and the uninstaller removes those changes.
+Нет. Системный прокси MacProxy не включает, маршруты и DNS не меняет. Файлы оболочки и `~/.claude/settings.json` меняются, только если вы
+отметите Claude Code, Codex CLI или Терминал, а удаление убирает эти правки.
 </details>
 
 <details>
-<summary><b>Why can't Safari go through MacProxy?</b></summary>
+<summary><b>Почему Safari не идёт через MacProxy?</b></summary>
 
-Safari and other Apple apps go direct: MacProxy cannot tell which Apple app a connection belongs to. Use a browser in a MacProxy profile
-instead.
+Safari и другие программы Apple идут напрямую: MacProxy не может узнать, какой программе Apple принадлежит соединение. Для сайтов через
+туннель откройте браузер в профиле MacProxy.
 </details>
 
 <details>
-<summary><b>Why does macOS warn me on first launch?</b></summary>
+<summary><b>Почему macOS предупреждает при первом запуске?</b></summary>
 
-The build is signed ad hoc, without an Apple Developer ID, and is not notarized yet. Allow it once in Privacy & Security (see Install);
-updates after that are checked by MacProxy's own signature.
+Сборка подписана ad-hoc, без Developer ID Apple, и пока не нотаризована. Разрешите запуск один раз в «Конфиденциальность и безопасность»
+(см. «Установка»); дальше обновления MacProxy проверяет по своей подписи.
 </details>
 
 <details>
-<summary><b>Is there an English interface or an Intel build?</b></summary>
+<summary><b>Есть ли английский интерфейс или сборка для Intel?</b></summary>
 
-Not yet: the interface is in Russian, and builds are for Apple Silicon only.
+Пока нет: интерфейс на русском, сборки — только для Apple Silicon.
 </details>
 
 <details>
-<summary><b>Is the source code available?</b></summary>
+<summary><b>Открыт ли исходный код?</b></summary>
 
-No. This repository holds the ready builds, the update feed and this page.
+Нет. Здесь лежат готовые сборки, лента обновлений и эта страница.
 </details>
 
-## Components and licenses
+## Компоненты и лицензии
 
-MacProxy itself is closed-source; it bundles:
+Код MacProxy закрыт; в приложение входят:
 
-- [Xray-core](https://github.com/XTLS/Xray-core) — MPL 2.0, a separate `xray` binary inside the app;
-- [Sparkle](https://sparkle-project.org) — MIT, updates;
-- [Rive runtime](https://github.com/rive-app/rive-ios) — MIT, the main button animation;
-- [circle-flags](https://github.com/HatScripts/circle-flags) — MIT, country flags.
+- [Xray-core](https://github.com/XTLS/Xray-core) — MPL 2.0, отдельный файл `xray` внутри приложения;
+- [Sparkle](https://sparkle-project.org) — MIT, обновления;
+- [Rive runtime](https://github.com/rive-app/rive-ios) — MIT, анимация главной кнопки;
+- [circle-flags](https://github.com/HatScripts/circle-flags) — MIT, флаги стран.
 
-The globe on the button, visible in the screenshots, is derived from “The Golden Glow Button” (Rive Community, #18655) by AmritAaryan, licensed under [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/).
+Глобус на кнопке, который виден на снимках, — производная от работы «The Golden Glow Button» (Rive Community, № 18655), автор AmritAaryan, лицензия [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/).
 
-Full license texts are in `MacProxy.app/Contents/Resources/THIRD-PARTY-NOTICES.txt`.
+Полные тексты лицензий — в `MacProxy.app/Contents/Resources/THIRD-PARTY-NOTICES.txt`.
