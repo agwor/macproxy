@@ -5,17 +5,16 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="color-scheme" content="light dark">
 <title>MacProxy — программы через ваш VPN/прокси</title>
-<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14.4' fill='%232E2F30'/%3E%3Cpath d='M37.23 12.49A20.19 20.19 0 1 0 51.51 26.77' fill='none' stroke='%23EFF0F2' stroke-width='6.6' stroke-linecap='round'/%3E%3Ccircle cx='32' cy='32' r='8' fill='%23EFF0F2'/%3E%3C/svg%3E">
-<meta name="description" content="MacProxy 11.0.27 для macOS: Claude Code, Codex, Telegram и нужные вам программы — через ваш VPN/прокси, остальной Мак — напрямую.">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cpath d='M64 32L64 41.99C64 48.33 64 51.49 62.92 54.91C61.57 58.63 58.63 61.57 54.91 62.92C51.49 64 48.33 64 41.99 64L22.01 64C15.67 64 12.51 64 9.09 62.92C5.37 61.57 2.43 58.63 1.08 54.91C0 51.49 0 48.33 0 41.99L0 22.01C0 15.67 0 12.51 1.08 9.09C2.43 5.37 5.37 2.43 9.09 1.08C12.51 0 15.67 0 22.01 0L41.99 0C48.33 0 51.49 0 54.91 1.08C58.63 2.43 61.57 5.37 62.92 9.09C64 12.51 64 15.67 64 22.01Z' fill='%23292A2A'/%3E%3Cpath d='M37.21 12.57A20.12 20.12 0 1 0 51.43 26.79' fill='none' stroke='%23E5E6E8' stroke-width='6.37' stroke-linecap='round'/%3E%3Ccircle cx='32' cy='32' r='7.84' fill='%23E5E6E8'/%3E%3C/svg%3E">
+<meta name="description" content="MacProxy 11.0.28 для macOS: Claude Code, Codex, Telegram и нужные вам программы — через ваш VPN/прокси, остальной Мак — напрямую.">
 <link rel="alternate" type="application/rss+xml" title="Обновления MacProxy" href="appcast.xml">
 <script>
-/* язык: ?lang=en|ru → выбор, запомненный на этом устройстве → язык браузера; без JS страница остаётся русской */
+/* язык: русский всегда; английский — только по явному выбору: ?lang=en или выбор переключателем, запомненный на этом устройстве. Язык браузера не смотрим; без JS страница русская */
 (function () {
   var d = document.documentElement, key = "macproxy-lang", q = null, saved = null;
   try { q = new URLSearchParams(location.search).get("lang"); } catch (e) {}
   try { saved = localStorage.getItem(key); } catch (e) {}
-  var nav = (navigator.languages && navigator.languages[0]) || navigator.language || "ru";
-  var lang = (q === "en" || q === "ru") ? q : (saved === "en" || saved === "ru") ? saved : (/^(ru|uk|be|kk)\b/i.test(nav) ? "ru" : "en");
+  var lang = (q === "en" || q === "ru") ? q : (saved === "en" || saved === "ru") ? saved : "ru";
   var titles = { ru: "MacProxy — программы через ваш VPN/прокси", en: "MacProxy — your apps through your own VPN/proxy" };
   function apply(l) {
     d.setAttribute("data-lang", l);
@@ -102,7 +101,7 @@
   /* верх */
   .top { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 18px 0; }
   .brand { display: flex; align-items: center; gap: 10px; font-weight: 650; font-size: 17px; color: var(--ink); text-decoration: none; }
-  .brand svg { width: 30px; height: 30px; flex: none; }
+  .brand img { width: 30px; height: 30px; flex: none; display: block; }
   .langs { display: inline-flex; border: 1px solid var(--hair-2); border-radius: 9px; padding: 2px; gap: 2px; }
   .langs a { font-size: 13px; font-weight: 600; text-decoration: none; color: var(--ink-2); padding: 4px 10px; border-radius: 7px; }
   .langs a[aria-pressed="true"] { background: var(--accent); color: var(--on-accent); }
@@ -123,10 +122,11 @@
   .tags { display: flex; flex-wrap: wrap; gap: 8px; margin: 18px 0 0; padding: 0; list-style: none; }
   .tags li { font-size: 13px; color: var(--ink-2); border: 1px solid var(--hair-2); border-radius: 999px; padding: 3px 11px; }
   .hero-shots { display: flex; gap: 20px; justify-content: center; align-items: flex-start; }
-  .hero-shots picture:last-child { margin-top: 56px; }
-  .panel-shot { width: 300px; max-width: 100%; border-radius: 12px; box-shadow: var(--shot-shadow); }
-  .shot-frame { border-radius: 12px; overflow: hidden; box-shadow: var(--shot-shadow); }
-  .window-shot { border-radius: 12px; box-shadow: var(--shot-shadow); margin: 0 auto; }
+  .hero-shots picture { display: block; flex: 0 1 300px; min-width: 0; }
+  /* снимки рядом: одна ширина, одна высота (оба исходника одного размера), один верх; height: auto — пропорции не искажаются */
+  .panel-shot, .shot-frame { display: block; width: 300px; max-width: 100%; height: auto; border-radius: 12px; box-shadow: var(--shot-shadow); }
+  .shot-frame { overflow: hidden; }
+  .window-shot { display: block; width: 710px; max-width: 100%; height: auto; border-radius: 12px; box-shadow: var(--shot-shadow); margin: 0 auto; }
   .gallery .panel-shot { margin: 0 auto; }
 
   .note {
@@ -148,7 +148,7 @@
   .card .ic { width: 34px; height: 34px; border-radius: 9px; background: var(--canvas); border: 1px solid var(--hair); display: grid; place-items: center; margin-bottom: 12px; }
   .card .ic svg { width: 18px; height: 18px; color: var(--ink); }
 
-  .duo { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 28px; }
+  .duo { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 28px; align-items: start; }
   figure { margin: 0; }
   figcaption { margin-top: 12px; color: var(--ink-2); font-size: 14px; text-align: center; }
   .duo figure { display: flex; flex-direction: column; align-items: center; }
@@ -160,7 +160,7 @@
   .node span { display: block; color: var(--ink-2); font-size: 13px; margin-top: 2px; }
   .node ul { margin: 6px 0 0; padding: 0 0 0 16px; font-size: 14px; color: var(--ink-2); }
   .node.mp { display: flex; gap: 10px; align-items: center; }
-  .node.mp svg { width: 34px; height: 34px; flex: none; }
+  .node.mp img { width: 34px; height: 34px; flex: none; display: block; }
   .arrow { color: var(--ink); font-size: 13px; text-align: center; white-space: nowrap; }
   .arrow i { display: block; height: 3px; min-width: 28px; background: var(--ink); border-radius: 2px; position: relative; margin-top: 4px; }
   .arrow i::after { content: ""; position: absolute; right: -2px; top: -4px; border: 5.5px solid transparent; border-left: 8px solid var(--ink); border-right: 0; }
@@ -170,7 +170,7 @@
   .direct i { flex: 1; border-top: 2px dashed var(--hair-2); min-width: 24px; }
 
   .gallery { display: grid; gap: 28px; }
-  .gallery .pair { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 28px; justify-items: center; }
+  .gallery .pair { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 28px; justify-items: center; align-items: start; }
 
   ol.steps { list-style: none; counter-reset: step; margin: 0; padding: 0; }
   ol.steps li { counter-increment: step; position: relative; padding: 0 0 18px 46px; }
@@ -197,6 +197,7 @@
   th { font-weight: 600; width: 34%; }
   td { color: var(--ink-2); }
   .two { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 40px; }
+  .two > section { min-width: 0; }
   footer { margin: 72px 0 0; padding: 20px 0 40px; border-top: 1px solid var(--hair); color: var(--ink-2); font-size: 14px; display: flex; flex-wrap: wrap; gap: 8px 18px; }
 
   @media (max-width: 900px) {
@@ -222,15 +223,7 @@
 <div class="wrap">
   <div class="top">
     <a class="brand" href="./" aria-label="MacProxy">
-      <svg viewBox="0 0 64 64" aria-hidden="true" data-logo="ring">
-        <defs>
-          <linearGradient id="rl-tile" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#4B4C4D"/><stop offset="1" stop-color="#1E1E1F"/></linearGradient>
-          <linearGradient id="rl-mark" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#F2F4F6"/><stop offset="1" stop-color="#D4D6D7"/></linearGradient>
-        </defs>
-        <rect width="64" height="64" rx="14.4" fill="url(#rl-tile)"/>
-        <path d="M37.23 12.49A20.19 20.19 0 1 0 51.51 26.77" fill="none" stroke="url(#rl-mark)" stroke-width="6.21" stroke-linecap="round"/>
-        <circle cx="32" cy="32" r="7.77" fill="url(#rl-mark)"/>
-      </svg>
+      <img src="img/logo.png" width="30" height="30" alt="" data-logo="ring-d">
       MacProxy
     </a>
     <nav class="langs" aria-label="Язык / Language">
@@ -244,13 +237,13 @@
       <h1><span class="ru">Claude Code, Codex, Telegram и&nbsp;нужные вам программы — через ваш VPN/прокси</span><span class="en" lang="en">Claude Code, Codex, Telegram and the apps you choose — through your own VPN/proxy</span></h1>
       <p class="lede"><span class="ru">MacProxy живёт в&nbsp;строке меню macOS и&nbsp;пускает через туннель только то, что вы отметили: приложения, браузер в&nbsp;отдельном профиле, команды в&nbsp;Терминале. Остальной Мак ходит напрямую, сетевые настройки не&nbsp;меняются.</span><span class="en" lang="en">MacProxy lives in the macOS menu bar and sends through the tunnel only what you pick: apps, a browser in its own profile, commands in Terminal. The rest of your Mac goes direct, and its network settings stay as they are.</span></p>
       <div class="cta">
-        <a class="button" href="https://github.com/agwor/macproxy/releases/download/v11.0.27-757/MacProxy-11.0.27-757-macos-arm64.dmg">
+        <a class="button" href="https://github.com/agwor/macproxy/releases/download/v11.0.28-761/MacProxy-11.0.28-761-macos-arm64.dmg">
           <svg viewBox="0 0 20 20" aria-hidden="true"><path d="M10 3v10m0 0-4-4m4 4 4-4M4 16h12" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          <span class="ru">Скачать MacProxy 11.0.27</span><span class="en" lang="en">Download MacProxy 11.0.27</span>
+          <span class="ru">Скачать MacProxy 11.0.28</span><span class="en" lang="en">Download MacProxy 11.0.28</span>
         </a>
         <a href="https://github.com/agwor/macproxy/releases"><span class="ru">Все выпуски</span><span class="en" lang="en">All releases</span></a>
       </div>
-      <p class="meta"><span class="ru">DMG · 27,5 МБ · macOS 14 или новее · только Mac на Apple Silicon (M1 и новее), для Intel сборки нет · сборка 757, 25 ноября 2026</span><span class="en" lang="en">DMG · 27.5 MB · macOS 14 or later · Apple Silicon only (M1 or later), no Intel build · build 757, November 25, 2026</span></p>
+      <p class="meta"><span class="ru">DMG · 26,7 МБ · macOS 14 или новее · только Mac на Apple Silicon (M1 и новее), для Intel сборки нет · сборка 761, 25 ноября 2026</span><span class="en" lang="en">DMG · 26.7 MB · macOS 14 or later · Apple Silicon only (M1 or later), no Intel build · build 761, November 25, 2026</span></p>
       <ul class="tags">
         <li><span class="ru">VPN-клиент для отдельных программ</span><span class="en" lang="en">A VPN client for individual apps</span></li>
         <li><span class="ru">Без системного прокси</span><span class="en" lang="en">No system proxy</span></li>
@@ -261,7 +254,7 @@
     <div class="hero-shots">
       <picture>
         <source media="(prefers-color-scheme: dark)" srcset="img/home-dark.png">
-        <img class="panel-shot" src="img/home-light.png" width="300" height="535" alt="Панель MacProxy: «Подключено», Амстердам; Claude, Codex и iTerm2 идут через туннель" data-alt-en="MacProxy panel: Connected, Amsterdam; Claude, Codex and iTerm2 go through the tunnel">
+        <img class="panel-shot" src="img/home-light.png" width="300" height="535" alt="Панель MacProxy: «Подключено», Амстердам; Claude, ChatGPT и Терминал идут через туннель" data-alt-en="MacProxy panel: Connected, Amsterdam; Claude, ChatGPT and Terminal go through the tunnel">
       </picture>
       <picture>
         <source media="(prefers-color-scheme: dark)" srcset="img/apps-dark.png">
@@ -338,16 +331,16 @@
       <div class="node">
         <b><span class="ru">Выбранные программы</span><span class="en" lang="en">Apps you choose</span></b>
         <ul>
-          <li>Claude, Codex, ChatGPT, Cursor</li>
-          <li><span class="ru"><code>claude</code> и&nbsp;<code>codex</code> в&nbsp;Терминале</span><span class="en" lang="en"><code>claude</code> and <code>codex</code> in Terminal</span></li>
+          <li>Claude, ChatGPT, Cursor</li>
+          <li><span class="ru">Терминал: <code>claude</code>, <code>codex</code></span><span class="en" lang="en">Terminal: <code>claude</code>, <code>codex</code></span></li>
           <li>Telegram</li>
-          <li><span class="ru">Chrome, Firefox — свой профиль</span><span class="en" lang="en">Chrome, Firefox — own profile</span></li>
+          <li><span class="ru">Браузеры, свой профиль</span><span class="en" lang="en">Browsers, own profile</span></li>
         </ul>
       </div>
       <div class="arrow" aria-hidden="true"><i></i></div>
       <div class="node mp">
-        <svg viewBox="0 0 64 64" aria-hidden="true"><rect width="64" height="64" rx="14.4" fill="url(#rl-tile)"/><path d="M37.23 12.49A20.19 20.19 0 1 0 51.51 26.77" fill="none" stroke="#EFF0F2" stroke-width="6.21" stroke-linecap="round"/><circle cx="32" cy="32" r="7.77" fill="#EFF0F2"/></svg>
-        <div><b>MacProxy</b><span><span class="ru">127.0.0.1 · ядро Xray</span><span class="en" lang="en">127.0.0.1 · Xray core</span></span></div>
+        <img src="img/logo.png" width="34" height="34" alt="">
+        <div><b>MacProxy</b><span><span class="ru">ядро Xray</span><span class="en" lang="en">Xray core</span></span><span>127.0.0.1</span></div>
       </div>
       <div class="arrow tun" aria-hidden="true"><span class="ru">туннель</span><span class="en" lang="en">tunnel</span><i></i></div>
       <div class="node"><b><span class="ru">Ваш VPN/прокси</span><span class="en" lang="en">Your VPN/proxy</span></b><span><span class="ru">сервер или подписка</span><span class="en" lang="en">server or subscription</span></span></div>
@@ -368,14 +361,14 @@
       <figure>
         <picture>
           <source media="(prefers-color-scheme: dark)" srcset="img/servers-dark.png">
-          <img class="window-shot" src="img/servers-light.png" width="710" height="568" loading="lazy" alt="Окно: «Серверы и подписки»" data-alt-en="Window: Servers and subscriptions">
+          <img class="window-shot" src="img/servers-light.png" width="710" height="793" loading="lazy" alt="Окно: «Серверы и подписки»" data-alt-en="Window: Servers and subscriptions">
         </picture>
         <figcaption><span class="ru">Серверы и&nbsp;подписки: страны, задержка, избранное</span><span class="en" lang="en">Servers and subscriptions: countries, latency, favorites</span></figcaption>
       </figure>
       <figure>
         <picture>
           <source media="(prefers-color-scheme: dark)" srcset="img/settings-dark.png">
-          <img class="window-shot" src="img/settings-light.png" width="710" height="568" loading="lazy" alt="Окно: «Настройки → Общие»" data-alt-en="Window: Settings → General with Autostart">
+          <img class="window-shot" src="img/settings-light.png" width="710" height="793" loading="lazy" alt="Окно: «Настройки → Общие»" data-alt-en="Window: Settings → General with Autostart">
         </picture>
         <figcaption><span class="ru">Настройки → Общие: автозапуск и&nbsp;уведомления</span><span class="en" lang="en">Settings → General: autostart and notifications</span></figcaption>
       </figure>
@@ -413,8 +406,8 @@
 
       <h3 style="margin-top:28px"><span class="ru">Проверка файла</span><span class="en" lang="en">Verify the download</span></h3>
       <p><span class="ru">Сравните контрольную сумму SHA-256 скачанного образа с&nbsp;этой:</span><span class="en" lang="en">Compare the SHA-256 checksum of the downloaded image with this one:</span></p>
-      <pre><code>shasum -a 256 ~/Downloads/MacProxy-11.0.27-757-macos-arm64.dmg</code></pre>
-      <p class="hash">06f7597640072b195f98e467eec7e4c9aac51f2cb79a21c703a7db04a2584556</p>
+      <pre><code>shasum -a 256 ~/Downloads/MacProxy-11.0.28-761-macos-arm64.dmg</code></pre>
+      <p class="hash">ec91c33a6ef150348b4ed917848fa6fd5d8d278f49d0625c986619eea103037b</p>
     </section>
 
     <section id="updates">

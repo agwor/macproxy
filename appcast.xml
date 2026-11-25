@@ -6,6 +6,19 @@ IMPORTANT: This file was signed by Sparkle. Any modifications to this file requi
     <channel>
         <title>MacProxy</title>
         <item>
+            <title>11.0.28</title>
+            <pubDate>Wed, 25 Nov 2026 17:43:14 +0300</pubDate>
+            <sparkle:version>761</sparkle:version>
+            <sparkle:shortVersionString>11.0.28</sparkle:shortVersionString>
+            <sparkle:minimumSystemVersion>14.0</sparkle:minimumSystemVersion>
+            <sparkle:hardwareRequirements>arm64</sparkle:hardwareRequirements>
+            <description sparkle:format="markdown"><![CDATA[### Новый значок
+- Обновлён значок MacProxy: матовое кольцо над графитовой плиткой. Он виден в Dock, уведомлениях, «О программе», окне обновления и в образе DMG; маленькие размеры нарисованы отдельно, чтобы оставаться чёткими.
+- В первом запуске на шаге «Подписка» теперь показан значок приложения.
+]]></description>
+            <enclosure url="https://github.com/agwor/macproxy/releases/download/v11.0.28-761/MacProxy-11.0.28-761-macos-arm64.zip" length="26512486" type="application/octet-stream" sparkle:edSignature="756GraDlzkDGboCFlpIQwpEY1J+rAjTHgkWwV4h/4SyM2PDzqxuu8RCRXzPj4npL558mX/4rjMGV3CMMrBQ+CA=="/>
+        </item>
+        <item>
             <title>11.0.27</title>
             <pubDate>Wed, 25 Nov 2026 00:46:13 +0300</pubDate>
             <sparkle:version>757</sparkle:version>
@@ -575,6 +588,6 @@ IMPORTANT: This file was signed by Sparkle. Any modifications to this file requi
     </channel>
 </rss>
 <!-- sparkle-signatures:
-edSignature: UMGVbYKd8cnaUD/rFq5wileEh2iy22KNZGE7LBu+WYbDbInmNYmd8/+TqDik33en32deCd3kT9kYkjuueUDABg==
-length: 64282
+edSignature: z59xgSTPrF8IUjXYuQLxCYDaCLRiRYVxr7ATKpQMIbES612itmoCEWPPtewSgaEC663/rxdVIdD3q9FtgipZCQ==
+length: 65594
 -->
